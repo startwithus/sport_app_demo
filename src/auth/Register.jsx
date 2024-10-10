@@ -129,6 +129,8 @@ const Register = () => {
     //   validationSchema,
     onSubmit,
   });
+
+  
   return (
     <div className="login-container">
       <div className="login-form-container">
@@ -169,7 +171,8 @@ const Register = () => {
                 {!otpSent && (
                   <button
                     type="button"
-                    disabled={!formik.values.phone}
+                    disabled={formik.values.phone.length !== 10} 
+                    // disabled={!formik.values.phone}
                     className="otp-send"
                     onClick={handleGetOtp}
                   >
