@@ -126,7 +126,7 @@ const Login = () => {
                   </div>
                   <div className="flex-3 create-acc-container">
                     <p className='small-regular-font'>Don’t have an account?</p>
-                    <Link to="/register">Create here</Link>
+                    <Link to="/register">Register</Link>
                   </div>
                 </div>
               </div>
