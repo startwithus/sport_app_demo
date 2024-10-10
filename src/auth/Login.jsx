@@ -1,28 +1,33 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
-import logoIcon from '../assets/Icon.svg'
-import './login.css'
-import { postCaller } from '../services/api'
+import logoIcon from "../assets/Icon.svg";
+import "./login.css";
+import { postCaller } from "../services/api";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
-import pass from '../assets/lock.svg'
+import pass from "../assets/lock.svg";
 
-import google from '../assets/google.svg'
-import fb from '../assets/fb.svg'
-import { Link, useNavigate } from 'react-router-dom'
-import { useFormik } from 'formik'
-import { FiEyeOff, FiEye } from 'react-icons/fi'
-import * as Yup from 'yup';
+import google from "../assets/google.svg";
+import fb from "../assets/fb.svg";
+import { Link, useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
+import { FiEyeOff, FiEye } from "react-icons/fi";
+import * as Yup from "yup";
 const Login = () => {
-  const navigate = useNavigate()
-  const [type, setType] = useState('password');
-  const [icon, setIcon] = useState(<FiEyeOff style={{ color: "#8B8B8B", fontSize: "1.2rem", cursor: "pointer" }} />);
-  const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+  const navigate = useNavigate();
+  const [type, setType] = useState("password");
+  const [icon, setIcon] = useState(
+    <FiEyeOff
+      style={{ color: "#8B8B8B", fontSize: "1.2rem", cursor: "pointer" }}
+    />
+  );
+  const phoneRegExp =
+    /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
   const validationLogin = Yup.object().shape({
-    phone: Yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Mobile Number is Required'),
-    password: Yup.string()
-      .required('Password is Required'),
-
+    phone: Yup.string()
+      .matches(phoneRegExp, "Phone number is not valid")
+      .required("Mobile Number is Required"),
+    password: Yup.string().required("Password is Required"),
   });
   const formik = useFormik({
     initialValues: {
@@ -31,49 +36,61 @@ const Login = () => {
     },
     validationSchema: validationLogin,
     onSubmit: async (values) => {
-      const res = await postCaller('user/v1/login', values)
+      const res = await postCaller("user/v1/login", values);
       if (res.status === true) {
-        alert(res.message)
-        localStorage.setItem('token', res.token)
-        localStorage.setItem('user', res?.userData?.phone)
-        localStorage.setItem('userName', res?.userData?.name === null ? "" : res?.userData?.name)
-        localStorage.setItem('userImage', res?.userData?.image === null ? "" : res?.userData?.image)
+        alert(res.message);
+        localStorage.setItem("token", res.token);
+        localStorage.setItem("user", res?.userData?.phone);
+        localStorage.setItem(
+          "userName",
+          res?.userData?.name === null ? "" : res?.userData?.name
+        );
+        localStorage.setItem(
+          "userImage",
+          res?.userData?.image === null ? "" : res?.userData?.image
+        );
         // localStorage.setItem('user_name', res?.user_name)
-        navigate('/')
-        window.location.reload()
-      }
-      else {
-        alert(res.errMsg)
+        navigate("/");
+        window.location.reload();
+      } else {
+        alert(res.errMsg);
       }
     },
   });
 
-
   const handleToggle = () => {
-    if (type === 'password') {
-      setIcon(<FiEye style={{ color: "#8B8B8B", fontSize: "1.2rem", cursor: "pointer" }} />);
-      setType('text')
+    if (type === "password") {
+      setIcon(
+        <FiEye
+          style={{ color: "#8B8B8B", fontSize: "1.2rem", cursor: "pointer" }}
+        />
+      );
+      setType("text");
     } else {
-      setIcon(<FiEyeOff style={{ color: "#8B8B8B", fontSize: "1.2rem", cursor: "pointer" }} />)
-      setType('password')
+      setIcon(
+        <FiEyeOff
+          style={{ color: "#8B8B8B", fontSize: "1.2rem", cursor: "pointer" }}
+        />
+      );
+      setType("password");
     }
-  }
+  };
   useEffect(() => {
-    if (localStorage.getItem('token')) {
-      navigate('/editProfile')
+    if (localStorage.getItem("token")) {
+      navigate("/editProfile");
     }
-  }, [])
+  }, []);
   return (
-
-    <div className='login-container'>
+    <div className="login-container">
       <div className="login-form-container">
         <div className="main-input-container">
           <div className="login-logo">
-            <img src={logoIcon} alt="" className='icon-img' /> <h2 style={{ color: "white" }}>CRICFAST</h2>
+            <img src={logoIcon} alt="" className="icon-img" />{" "}
+            <h2 style={{ color: "white" }}>CRICFAST</h2>
           </div>
           <div className="sign-in-content">
             <h2>Login In</h2>
-            <p className='regular-para-2'>Please enter your details</p>
+            <p className="regular-para-2">Please enter your details</p>
           </div>
           <form onSubmit={formik.handleSubmit}>
             <div className="">
@@ -81,46 +98,79 @@ const Login = () => {
               <div className="input-container">
                 <div className="input-field-container">
                   <FaPhoneAlt style={{ color: "#8B8B8B", fontSize: "18px" }} />
-                  <input type="number" name="phone" id="phone"
-                    autoComplete='off'
-                    placeholder='Mobile' onChange={formik.handleChange}
+                  <input
+                    type="text" 
+                    name="phone"
+                    id="phone"
+                    maxLength="10" 
+                    autoComplete="off"
+                    placeholder="Mobile"
+                    onChange={(e) => {
+                      
+                      const value = e.target.value
+                        .replace(/[^0-9]/g, "")
+                        .slice(0, 10);
+                      formik.setFieldValue("phone", value); 
+                    }}
                     value={formik.values.phone}
-                    onBlur={formik.handleBlur} />
+                    onBlur={formik.handleBlur}
+                  />
                 </div>
               </div>
-              {formik.errors.phone && formik.touched.phone && <span className="error" style={{ color: "red", fontSize: "16px", marginTop: "5px" }}>
-                {formik.errors.phone}
-              </span>}
+              {formik.errors.phone && formik.touched.phone && (
+                <span
+                  className="error"
+                  style={{ color: "red", fontSize: "16px", marginTop: "5px" }}
+                >
+                  {formik.errors.phone}
+                </span>
+              )}
             </div>
-            <div className='' style={{ marginTop: "1rem" }}>
+            <div className="" style={{ marginTop: "1rem" }}>
               <label style={{ color: "white" }}>Enter Password:</label>
 
               <div className="input-container">
                 <div className="input-field-container">
-                  <MdLockOutline style={{ color: "#8B8B8B", fontSize: "18px" }} />
-                  <input type={type} name="password"
-                    autoComplete='off'
-                    placeholder='Password' id="password" onChange={formik.handleChange}
+                  <MdLockOutline
+                    style={{ color: "#8B8B8B", fontSize: "18px" }}
+                  />
+                  <input
+                    type={type}
+                    name="password"
+                    autoComplete="off"
+                    placeholder="Password"
+                    id="password"
+                    onChange={formik.handleChange}
                     value={formik.values.password}
-                    onBlur={formik.handleBlur} />
+                    onBlur={formik.handleBlur}
+                  />
                 </div>
-                <span onClick={handleToggle}>
-                  {icon}
-                </span>
+                <span onClick={handleToggle}>{icon}</span>
               </div>
-              {formik.errors.password && formik.touched.password && <span className="error" style={{ color: "red", fontSize: "16px", marginTop: "5px" }}>
-                {formik.errors.password}
-              </span>}
+              {formik.errors.password && formik.touched.password && (
+                <span
+                  className="error"
+                  style={{ color: "red", fontSize: "16px", marginTop: "5px" }}
+                >
+                  {formik.errors.password}
+                </span>
+              )}
               <div className="login-para-container">
                 <div className="flex-2">
-                  <input type="checkbox" name="" id="check" /> <p className='remember small-regular-font'>Remember Me</p>
+                  <input type="checkbox" name="" id="check" />{" "}
+                  <p className="remember small-regular-font">Remember Me</p>
                 </div>
-                <p className='forgot small-regular-font' onClick={() => navigate('/forget_password')}>Forgot Password</p>
+                <p
+                  className="forgot small-regular-font"
+                  onClick={() => navigate("/forget_password")}
+                >
+                  Forgot Password
+                </p>
               </div>
               <div className="sign-in-btn">
                 <div className="">
-                  <button type='submit'>Login</button>
-                  <p className='small-regular-font or'>Or Sign In with</p>
+                  <button type="submit">Login</button>
+                  <p className="small-regular-font or">Or Sign In with</p>
                   <div className="round-box-container">
                     <div className="round-box">
                       <img src={google} alt="" />
@@ -130,7 +180,7 @@ const Login = () => {
                     </div>
                   </div>
                   <div className="flex-3 create-acc-container">
-                    <p className='small-regular-font'>Don’t have an account?</p>
+                    <p className="small-regular-font">Don’t have an account?</p>
                     <Link to="/register">Register</Link>
                   </div>
                 </div>
@@ -140,8 +190,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+  );
+};
 
-  )
-}
-
-export default Login
+export default Login;
