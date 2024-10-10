@@ -1,0 +1,142 @@
+import React, { useEffect, useState } from 'react'
+
+import logoIcon from '../assets/Icon.svg'
+import './login.css'
+import { postCaller } from '../services/api'
+import { FaPhoneAlt } from "react-icons/fa";
+import { MdLockOutline } from "react-icons/md";
+import pass from '../assets/lock.svg'
+
+import google from '../assets/google.svg'
+import fb from '../assets/fb.svg'
+import { Link, useNavigate } from 'react-router-dom'
+import { useFormik } from 'formik'
+import { FiEyeOff, FiEye } from 'react-icons/fi'
+import * as Yup from 'yup';
+const Login = () => {
+  const navigate = useNavigate()
+  const [type, setType] = useState('password');
+  const [icon, setIcon] = useState(<FiEyeOff style={{ color: "#8B8B8B", fontSize: "1.2rem", cursor: "pointer" }} />);
+  const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+  const validationLogin = Yup.object().shape({
+    phone: Yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Mobile Number is Required'),
+    password: Yup.string()
+      .required('Password is Required'),
+
+  });
+  const formik = useFormik({
+    initialValues: {
+      phone: "",
+      password: "",
+    },
+    validationSchema: validationLogin,
+    onSubmit: async (values) => {
+      const res = await postCaller('user/v1/login', values)
+      if (res.status ===true) {
+        alert(res.message)
+        localStorage.setItem('token', res.token)
+        localStorage.setItem('user', res?.userData?.phone)
+        localStorage.setItem('userName',res?.userData?.name===null?"":res?.userData?.name)
+        localStorage.setItem('userImage', res?.userData?.image===null?"":res?.userData?.image)
+        // localStorage.setItem('user_name', res?.user_name)
+        navigate('/')
+        window.location.reload()
+      }
+      else {
+        alert(res.errMsg)
+      }
+    },
+  });
+  
+ 
+  const handleToggle = () => {
+    if (type === 'password') {
+      setIcon(<FiEye style={{ color: "#8B8B8B", fontSize: "1.2rem", cursor: "pointer" }} />);
+      setType('text')
+    } else {
+      setIcon(<FiEyeOff style={{ color: "#8B8B8B", fontSize: "1.2rem", cursor: "pointer" }} />)
+      setType('password')
+    }
+  }
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      navigate('/editProfile')
+    }
+  }, [])
+  return (
+
+    <div className='login-container'>
+      <div className="login-form-container">
+        <div className="main-input-container">
+          <div className="login-logo">
+            <img src={logoIcon} alt="" className='icon-img' /> <h2 style={{color:"white"}}>CRICFAST</h2>
+          </div>
+          <div className="sign-in-content">
+            <h2>Sign in</h2>
+            <p className='regular-para-2'>Please enter your details</p>
+          </div>
+          <form onSubmit={formik.handleSubmit}>
+            <div className="">
+              <div className="input-container">
+             <div className="input-field-container">
+             <FaPhoneAlt style={{ color: "#8B8B8B",fontSize:"18px" }} />
+                <input type="number" name="phone" id="phone"
+                autoComplete='off'
+                 placeholder='Mobile' onChange={formik.handleChange}
+                  value={formik.values.phone}
+                  onBlur={formik.handleBlur} />
+              </div>
+             </div>
+              {formik.errors.phone && formik.touched.phone && <span className="error" style={{ color: "red",fontSize:"16px",marginTop:"5px" }}>
+                {formik.errors.phone}
+              </span>}
+              <div className="input-container">
+                <div className="input-field-container">
+                <MdLockOutline style={{ color: "#8B8B8B",fontSize:"18px"}} />
+                <input type={type} name="password" 
+                autoComplete='off'
+                placeholder='Password' id="password" onChange={formik.handleChange}
+                  value={formik.values.password}
+                  onBlur={formik.handleBlur} />
+                </div>
+               <span onClick={handleToggle}>
+                  {icon}
+                </span>
+              </div>
+              {formik.errors.password && formik.touched.password && <span className="error" style={{ color: "red",fontSize:"16px",marginTop:"5px" }}>
+                {formik.errors.password}
+              </span>}
+              <div className="login-para-container">
+                <div className="flex-2">
+                  <input type="checkbox" name="" id="check" /> <p className='remember small-regular-font'>Remember Me</p>
+                </div>
+                <p className='forgot small-regular-font' onClick={() => navigate('/forget_password')}>Forget Password</p>
+              </div>
+              <div className="sign-in-btn">
+                <div className="">
+                  <button type='submit'>Sign In</button>
+                  <p className='small-regular-font or'>Or Sign In with</p>
+                  <div className="round-box-container">
+                    <div className="round-box">
+                      <img src={google} alt="" />
+                    </div>
+                    <div className="round-box">
+                      <img src={fb} alt="" />
+                    </div>
+                  </div>
+                  <div className="flex-3 create-acc-container">
+                    <p className='small-regular-font'>Don’t have an account?</p>
+                    <Link to="/register">Create here</Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  )
+}
+
+export default Login

@@ -1,0 +1,14 @@
+.tab-container{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 32px;
+}
+.tab-box{
+color: var(--text-color);
+cursor: pointer;
+}
+.active-result-tab{
+    color: var(--head-text-color);
+    border-bottom: 1px solid var(--tab-color);
+}

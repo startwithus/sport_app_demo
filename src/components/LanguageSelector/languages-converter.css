@@ -1,0 +1,7 @@
+.languages-converter select{
+width: 100px;
+border-radius: 8px;
+padding: 8px;
+font-weight: 800;
+margin-right: 1rem;
+}

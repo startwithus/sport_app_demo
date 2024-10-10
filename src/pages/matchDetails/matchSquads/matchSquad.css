@@ -1,0 +1,62 @@
+.squardSection {
+  background: #3f3f3f;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.Player-eleven {
+  color: white;
+  /* text-align: center; */
+  
+}
+.formContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  /* justify-content: space-between; */
+  }
+.playerElevenSection {
+  display: flex;    
+  padding: 0px 48px 0px 0px; 
+  align-items: center;
+  border-radius: 8px;
+  background-color: #2f2f2f;
+  cursor: pointer;
+  width: 32.1%;
+  /* margin-bottom: 1rem; */
+}
+.elevenSection {
+  padding: 16px;
+  display: flex;
+  color: white;
+}
+.elevenSection img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.stylePlayer {
+  display: flex;
+  justify-content: space-between;
+
+}
+.elevenPlayerName {
+    color: white;
+
+}
+
+
+
+@media (max-width:768px) {
+   .formContainer{
+    /* flex-wrap: nowrap; */
+   }
+   .playerElevenSection{
+    width: 100%;
+   }
+   .Player-eleven h2{
+    font-size: 1rem;
+   }
+}

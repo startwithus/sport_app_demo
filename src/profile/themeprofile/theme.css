@@ -1,0 +1,48 @@
+
+.theme-color {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.theme-black {
+  width: 56px;
+  height: 64px;
+  flex-shrink: 0;
+  /* background: #000; */
+  border-radius: 8px 0 0 8px;
+}
+.theme-name h4 {
+  padding-left: 16px;
+  color: #fff;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+}
+.theme-section-color {
+    display: flex;
+    justify-content: center;
+  
+}
+.theme-section {
+    width: 100%;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    /* width: 400px; */
+    background-color: var(--secondary-bg-color);
+    
+}
+
+.radio {
+  padding-right: 16px;
+}
+
+@media (max-width: 768px) {
+  .theme-section {
+    width: 100%;
+  }
+}

@@ -1,0 +1,151 @@
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.modal-content-1 {
+  width: 100%;
+  /* margin: 0 auto; */
+  padding: 1rem;
+  /* margin-top: 10rem; */
+  background-color: var(--primary-bg2);
+  /* padding-bottom: 1rem ; */
+  border-radius: 8px;
+  overflow-x: hidden;
+  box-shadow: 0 0.16px 0.5rem rgba(0, 0, 0, 0.1);
+}
+.squad-team-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--head-text-color);
+}
+.player-main-squads-container {
+  margin-top: 16px;
+}
+.player-squads-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 8px;
+}
+.player-squads-card {
+  background-color: #232323;
+  width: 48%;
+  padding: 16px;
+  border-radius: 8px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  cursor: pointer;
+}
+.player-squads-card img {
+  width: 45.22px;
+  height: 45.22px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.calender-select {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.calender-select select {
+  border: none;
+  color: var(--tab-color);
+  background-color: transparent;
+  font-size: 16px;
+  outline: none;
+}
+.calender-series {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 32px;
+}
+.calender-series-card {
+  overflow-x: auto;
+  justify-content: space-between;
+}
+.calender-series-content {
+  gap: 32px;
+  display: flex;
+}
+.modalFixtureContainer-1 {
+  background-color: var(--primary-bg-color);
+  position: fixed;
+  width: 78%;
+  margin: 0 auto;
+  z-index: 10;
+  top: 16px;
+  border-radius: 8px;
+  min-height: 600px;
+  overflow-y: scroll;
+  /* border: 1px solid red; */
+}
+
+body.active-modal {
+  overflow-y: hidden;
+}
+
+.btn-modal {
+  padding: 10px 20px;
+  display: block;
+  margin: 100px auto 0;
+  font-size: 18px;
+}
+
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(49, 49, 49, 0.8);
+}
+.modal-content {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: var(--primary-bg-color);
+  z-index: 100;
+  /* padding: 14px 28px; */
+  max-width: 600px;
+  min-width: 600px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
+  background-color: #dbdbdb;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .player-squads-card {
+    width: 100%;
+  }
+}

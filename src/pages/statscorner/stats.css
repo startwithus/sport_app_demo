@@ -1,0 +1,53 @@
+.section-stats {
+  background: var(--secondary-bg-color);
+}
+
+.stats-fantasy {
+  margin-top: 32px;
+}
+.stat-flex {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.Stats-point-table {
+  margin-top: 16px;
+}
+
+.web-flag {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  /* padding-left: 5rem; */
+}
+.left-arrow-position-1 img {
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+.stats-tab-corner {
+  padding-top: 32px;
+}
+
+.fantasy-inn-num {
+  padding: 2rem;
+  color: #d7a700;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  /* 21px */
+}
+
+@media (max-width: 768px) {
+  .web-flag {
+    padding-left: 8px;
+  }
+  .section-stats {
+    padding-bottom: 7rem;
+  }
+  .stat-logo img {
+    width: 1rem;
+    height: 1rem;
+  }
+}

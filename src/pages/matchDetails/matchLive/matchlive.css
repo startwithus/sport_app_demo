@@ -1,0 +1,107 @@
+.batter-ship {
+  margin-top: 0.1rem;
+  padding: 1.8rem 3.7rem 1.8rem 1.8rem;
+  background-color: var(--primary-bg2);
+  color: var(--head-text-color);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+.man-of-match{
+display: flex;
+gap: 1rem;
+margin-top: 1rem;
+/* align-items: center; */
+}
+.man-of-img{
+  /* width:20%; */
+}
+.man-of-img img{
+  width: 100px;
+  height: 100px;
+  border-radius:.25rem;
+}
+.batter-para {
+  color: #d7a700;
+}
+
+.batter-para:nth-child(2) {
+  text-align: right;
+}
+
+.live-prediction {
+  border-radius: 8px;
+  background: var(--background-bg-02, #323232);
+}
+
+
+
+
+.liveBatterPlayer {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.Prediction-section {
+  padding-top: 16px;
+  width: 100%;
+  border-radius: 8px;
+  background: var(--primary-bg2);
+ 
+}
+.win-predict-content{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem 0 1rem 0;
+}
+.win-predict-content p{
+  color: var(--head-text-color);
+  font-size: 1rem;
+}
+.Bat-first{
+  border-bottom: 1px solid var(--text-color);
+
+}
+.loose-win-section{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.loose-win-flex{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.Bat-first:last-child{
+  border: 0;
+}
+@media (max-width: 600px) {
+  .batter-ship {
+    font-size: 12px;
+    height: 48px;
+    padding: 16px;
+    gap: 70px;
+    flex-shrink: 0;
+  }
+
+  /* .live-prediction{
+        margin-bottom: 3rem;
+    } */
+}
+
+@media (max-width: 900px) {
+  .batter-ship {
+    font-size: 12px;
+    height: 48px;
+    padding: 14px 16px;
+    gap: 70px;
+    flex-shrink: 0;
+  }
+}

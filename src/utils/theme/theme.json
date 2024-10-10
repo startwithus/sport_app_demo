@@ -1,0 +1,82 @@
+[
+  {
+    "name": "theme 01",
+    "variables": {
+      "--third-bg-color":"#171717",
+      "--head-text-color": "white",
+      "--text-color":"#8B8B8B"
+    }
+  },
+  {
+    "name": "theme 02",
+    "variables": { 
+      "--text-color":"black",
+      "--head-text-color": "black",
+      "--linear-gradient":"linear-gradient(90deg, #334D50 0%, #CBCAA5 100%)"
+    }
+  },
+  {
+    "name": "theme 03",
+    "variables": { 
+      "--text-color":"black",
+      "--head-text-color": "black",
+      "--linear-gradient":"linear-gradient(90deg, #DD5E89 0%, #F7BB97 100%)"
+    }
+  },
+  {
+      "name": "theme 04",
+      "variables": {
+        "--head-text-color": "white",
+        "--text-color":"black",
+        "--linear-gradient":"linear-gradient(90deg, #757F9A 0%, #D7DDE8 100%)"
+      }
+    },
+    {
+      "name": "theme 05",
+   
+      "variables": {
+        "--text-color":"black",
+        "--linear-gradient":"linear-gradient(90deg, #477FFF 0%, #DC298A 100%)"
+      }
+    },
+    {
+      "name": "theme 06",
+  
+      "variables": {
+        "--text-color":"black",
+        "--linear-gradient":"linear-gradient(90deg, #00467F 0%, #A5CC82 100%)"
+      }
+    },
+    {
+      "name": "theme 07",
+      
+      "variables": {
+        "--text-color":"black",
+        "--linear-gradient":"linear-gradient(90deg, #E65C00 0%, #F9D423 100%)"
+      }
+    },
+    {
+      "name": "theme 08",
+     
+      "variables": {
+        "--text-color":"black",
+        "--linear-gradient":"linear-gradient(90deg, #02AAB0 0%, #00CDAC 100%)"
+      }
+    },
+    {
+      "name": "theme 09",
+   
+      "variables": {
+        "--text-color":"black",
+        "--linear-gradient":"linear-gradient(90deg, #F09819 0%, #EDDE5D 100%)"
+      }
+    },
+    {
+      "name": "theme 10",
+      "backgroundColor":"#134E5E",
+      "variables": {
+        "--text-color":"black",
+        "--linear-gradient":"linear-gradient(90deg, #134E5E 0%, #71B280 100%)"
+      }
+    }
+]

@@ -1,0 +1,63 @@
+.PlayerInformationDetails {
+  border-radius: 8px;
+  background: var(--primary-bg2);
+}
+.player-info-section {
+  padding: 24px 16px;
+}
+.info-section {
+  padding: 16px;
+  display: flex;
+}
+.Pname {
+  width: 30%;
+}
+
+.Pname h3 {
+  color: var(--text-color);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fullName {
+  width: 70%;
+}
+.fullName p {
+  color: var(--head-text-color);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 16.8px */
+}
+
+.about-info {
+  padding: 24px;
+  border-radius: 8px;
+  background: var(--primary-bg2);
+}
+
+.about-info p {
+  color: #fff;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+}
+
+@media (max-width: 768px) {
+  .player-info-section {
+    padding: 8px;
+  }
+  .info-section {
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .Pname {
+    width: 50%;
+  }
+}

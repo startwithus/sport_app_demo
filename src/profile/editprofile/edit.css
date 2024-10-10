@@ -1,0 +1,75 @@
+.cam-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-circle{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.form-edit-section{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.form-edit-field{
+    width: 100%;
+}
+.form-edit-field label{
+    font-size: 1rem;
+    color: var(--head-text-color);
+   
+}
+.form-edit-field input{
+    width: 400px;
+    border: none;
+    outline: none;
+    background-color: var(--secondary-bg-color);
+    padding: 1rem;
+    margin-top: .5rem;
+    color: var(--head-text-color);
+    font-size: 1rem;
+    border-radius: .25rem;
+}
+.form-edit-field input::placeholder{
+    color: var(--head-text-color);
+}
+.edit-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.edit-btn button{
+    background-color: #F44464;
+    border-radius: 32px;
+    outline: none;
+    border: none;
+    width: 96px;
+    height: 40px;
+    cursor: pointer;
+    color: var(--head-text-color);
+}
+.reset{
+    border: 1px solid var(--text-color) !important;
+    background-color: transparent !important;
+}
+@media (max-width:768px) {
+    .form-edit-field{
+        width: 100%;
+    }
+    .form-edit-field input{
+  width:320px;
+    }
+}
+@media (max-width:340px) {
+    .form-edit-field{
+        width: 100%;
+    }
+    .form-edit-field input{
+  width:100%;
+    }
+}

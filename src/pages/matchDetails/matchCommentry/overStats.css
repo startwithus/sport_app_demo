@@ -1,0 +1,43 @@
+
+.over-section{
+    padding-top: 16px;
+}
+.over-containert{
+    margin: 0px 16px;
+    border: 1px solid white;
+    padding: 16px;
+    border-radius: 8px;
+}
+.over-box{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(135, 135, 135, 0.505);
+}
+.over-para{
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.over-box-2{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-transform: capitalize;
+    padding-top: 16px;
+    margin-top: auto;
+    
+}
+.over-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 30%;
+}
+
+.over-para2{
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(225, 225, 225, 0.797);
+}

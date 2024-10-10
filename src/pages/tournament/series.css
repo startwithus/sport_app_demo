@@ -1,0 +1,332 @@
+.t-name {
+  padding: 2rem 0 2rem 0;
+}
+
+.t-name p {
+  font-size: 1.2rem;
+  color: var(--head-text-color);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.t-name h5 {
+  font-size: 1rem;
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+.right-arrow-position-1 {
+  position: absolute;
+  right: 128px;
+  top: 192px;
+  z-index: 20 !important;
+  cursor: pointer;
+  width: 48px;
+}
+
+.result-msg {
+  font-size: 14px;
+  text-align: center;
+  font-weight: 600;
+  color: #1B9B46;
+}
+
+.left-arrow-position-1 {
+  position: absolute;
+  left: 112px;
+  top: 192px;
+  cursor: pointer;
+}
+
+.feature-section-match {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fetured-main-container {
+  display: flex;
+  justify-content: center!important;
+  /* width: 100%; */
+  /* align-items: center; */
+  background-color: var(--primary-bg2);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 24px 0px 24px 0px;
+}
+
+
+.active-side-1 {
+  color: red;
+}
+.featured-match-container-2{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  width: 30%;
+}
+.featured-match-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  /* justify-content: space-between; */
+
+}
+.featured-match-container-1{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+  width: 30%;
+}
+
+
+.key-section {
+  width: 328px !important;
+  /* height: 135px; */
+  padding: 16px 16px 0 16px;
+  border-radius: 8px;
+  background: var(--primary-bg2);
+}
+
+
+.key-runs {
+  display: flex;
+
+}
+
+.key-runs p {
+  color: var(--text-color);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 200%;
+
+}
+
+.high-runs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.key-stats-high h3 {
+  color: var(--head-text-color, #FFFF);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  /* 21px */
+}
+
+.key-stats-high p {
+
+  color: var(--grey-grey-02, #8B8B8B);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  /* 16.8px */
+}
+
+.key-stats-high h4 {
+  color: var(--yellow-main, #D7A700);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 200%;
+}
+
+.team-squads-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.Team-squad-section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 16px;
+  /* justify-content: space-between; */
+  /* width: 100%; */
+}
+
+.left-arrow-position-1 img {
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.active-team {
+  background-color:var(--tab-color) !important;
+}
+
+.player-name-s {
+  color: var(--head-text-color);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.player-role {
+  font-size: 14px;
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+.section-squad-team {
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: var(--primary-bg2);
+  /* width:100%!important; */
+  width: 328px;
+  cursor: pointer;
+  align-items: center;
+}
+
+.squads-flag {
+  display: flex;
+  color: var(--head-text-color);
+  padding: 1rem;
+  gap: 1rem;
+  width: 100%;
+  align-items: center;
+}
+
+
+.series-info-section {
+  display: flex;
+  padding: 16px;
+  border-radius: 8px;
+  align-items: center;
+  background: var(--primary-bg2);
+}
+
+.format-series {
+  padding: 16px;
+}
+
+.format-series p {
+  color: var(--text-color);
+  padding: 1rem;
+}
+
+.format-series h4 {
+  color: var(--head-text-color);
+  padding: 1rem;
+}
+
+.more-series-container {
+  padding: 16px;
+  border-radius: 8px;
+  background-color: var(--primary-bg2);
+  width: 50%;
+}
+
+.seasons-section {
+  display: flex;
+  gap: 32px;
+}
+
+.series-more {
+  color: var(--head-text-color);
+  text-align: center;
+  cursor: pointer;
+}
+
+@media (max-width:768px) {
+  .team-squads-container {
+    flex-direction: column;
+  }
+
+  .Team-squad-section {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+  }
+.squads-flag{
+  padding: .5rem;
+}
+  .t-name p {
+    font-size: 1rem;
+  }
+
+  .series-info-section {
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .format-series {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+  }
+
+  .format-series p {
+    padding: 0;
+    font-size: 14px;
+  }
+
+  .format-series h4 {
+    padding: 0;
+    font-size: 14px;
+  }
+
+  .icon-series-container {
+    display: flex;
+    justify-content: flex-end;
+
+  }
+
+  .right-arrow-position-1 img {
+    display: none;
+
+  }
+
+  .left-arrow-position-1 img {
+    display: none;
+  }
+.more-series-container{
+  padding: .8rem;
+}
+.featured-match-container{
+/* align-items: flex-start; */
+gap: 0;
+width: 100%;
+
+}
+.fetured-main-container{
+  padding: 0.5rem;
+  justify-content: center;
+
+}
+  .series-info-section{
+    padding: 0.5rem;
+  }
+}
+@media (max-width:390px) {
+  .t-name p,h5 {
+    font-size: .8rem !important;
+}
+.format-series p {
+  font-size: 10px;
+}
+.format-series h4 {
+  padding: 0;
+  font-size: 10px;
+}
+.seasons-section {
+flex-direction: column;
+}
+
+.more-series-container{
+  width: 100%;
+}
+}

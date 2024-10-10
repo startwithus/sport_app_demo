@@ -1,0 +1,78 @@
+
+.partnership-container {
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: var(--primary-bg2);
+    margin-top: 3.2px;
+    padding: 28.8px 59.2px 28.8px 28.8px;
+}
+.partnership-section {
+    margin-top: 16px;
+}
+.batter-part {
+  text-align: center;
+  color: var(--text-color);
+}
+.over-score{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* color: var(--text-color); */
+}
+.diss-para{
+    color: var(--text-color);
+    font-size: var(--small-font-size);
+    font-weight: 400;
+  
+}
+.partner-names {
+    margin-top: 16px;
+    width: 30%;
+}
+.partner-names:nth-child(3){
+    text-align: right;
+}
+
+.partner-names a{
+    /* text-align: center; */
+    color: var(--head-text-color);
+    font-size: 16px;
+    text-transform: capitalize;
+}
+.partner-names p{
+    font-size: .9rem;
+    color: var(--head-text-color);
+    margin-top: .2rem;
+}
+.section-partner {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 16px;
+}
+
+.part-para {
+    text-align: center;
+    color: #D7A700;
+}
+.liveBatterPlayer{
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+@media (max-width:768px) {
+    .partnership-container{
+        padding: 14px 16px;
+    }
+    .score-body-row{
+        width: 100%;
+    }
+    .name-column{
+        width: 100%;
+    }
+
+}

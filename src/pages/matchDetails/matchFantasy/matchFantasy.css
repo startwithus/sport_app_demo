@@ -1,0 +1,117 @@
+.fantasy-section {
+    display: flex;
+    justify-content: center;
+}
+
+.sec-fan {
+    display: flex;
+    justify-content: space-between;
+    width: 48%;
+    border-radius: 8px;
+    background: var(--background-bg-02, #323232);
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+
+.section-fantasy {
+    padding: 16px;
+}
+
+.fantasy {
+    display: flex;
+    gap: 16px;
+}
+
+.fantasy h3 {
+    color: var(--grey-grey-02, #8B8B8B);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+}
+
+.fantasy img {
+    width: 24px;
+    height: 28px;
+    flex-shrink: 0;
+    border-radius: 50%;
+}
+
+.fantasy p {
+    color: var(--black-and-white-white, #FFF);
+ 
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+
+}
+
+
+.container-fantasy p {
+    color: var(--text-color);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 140%;
+
+}
+
+.fantasy-inn {
+    padding: 16px;
+
+}
+
+.fantasy-inn p {
+    color: var(--yellow-main, #D7A700);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+}
+
+.fantasy-inn h3 {
+    color: var(--grey-grey-02, #8B8B8B);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 200%;
+}
+
+.fantasy-card {
+    display: flex;
+    width: 95% !important;
+    background: var(--primary-bg2);
+    border-radius: 8px;
+    cursor: pointer;
+    height: 420px;
+}
+.coming-soon{
+    color: var(--head-text-color);
+    text-align: center;
+    margin-top: 2rem;
+}
+.fantasy-card img {
+    display: block;
+    width: 100%;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+.match-news-container{
+    padding: 1rem;
+}
+@media (max-width:600px) {
+    .fantasy-section{
+        flex-direction: column;
+    }
+    .sec-fan{
+        width: 100%;
+    }
+    .fantasy-card{
+        height: 460px;
+    }
+}

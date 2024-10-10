@@ -1,0 +1,127 @@
+.head-back {
+  border-radius: 8px;
+  background: var(--primary-bg2);
+}
+.head-team-container {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  align-items: center;
+}
+.aus-num {
+  color: var(--head-text-color);
+  display: flex;
+  gap: 1rem;
+}
+
+.lastmatches {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--head-text-color);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+  align-items: center;
+}
+
+.section-comparison {
+  width: 100%;
+  border-radius: 8px;
+  background: var(--background-bg-02, #323232);
+}
+
+.sec-team {
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.aus-para-2 {
+  display: flex;
+  gap: 16px;
+}
+
+.aus-para-2 p {
+  margin-top: 8px;
+  color: #fff;
+}
+
+.v-teams {
+  display: flex;
+  justify-content: space-between;
+  color: #8b8b8b;
+}
+
+.para-team p {
+  padding: 1px 30px 10px;
+}
+
+.Matches-played-teams {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px 16px 32px;
+  border-top: 1px solid var(--primary-bg-color);
+}
+
+.para-team-10 p {
+  color: var(--black-and-white-white, #fff);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 21px */
+}
+
+.mat-play h3 {
+  color: var(--grey-grey-02, #8b8b8b);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  /* 16.8px */
+}
+
+
+
+
+
+
+@media (max-width: 600px) {
+  .looser-section {
+    max-width: 568px;
+    padding: 16px;
+  }
+  .head-team-container {
+    width: 100%;
+    padding: 1rem;
+    justify-content: flex-start;
+    gap: 5rem;
+  }
+  .half-circle p {
+    width: 20%;
+  }
+  .para-team p {
+    padding: 0.5rem;
+    font-size: 12px;
+  }
+  .sec-team {
+    padding: 0.5rem;
+  }
+  .mat-play h3 {
+    font-size: 14px;
+  }
+}
+@media (max-width: 390px) {
+  .head-team-container {
+    width: 100%;
+    padding: 1rem;
+  }
+}

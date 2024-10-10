@@ -1,0 +1,218 @@
+.flexserise-1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.fixtures-width {
+    width: 48%;
+    border-radius: .5rem;
+    background-color: var(--primary-bg2);
+
+}
+
+.fixture-main-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    border-radius: 8px;
+}
+.flex-fixture{
+    display: flex;
+    /* flex-direction: column; */
+    margin-left: .5rem;
+    gap: .3rem;
+    align-items: center;
+}
+.fixtures-flex {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+}
+
+.fixtures-hundred {
+    width: 80%;
+}
+
+.fixtures-col {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50% !important;
+    border: 1px solid #dbdbdb;
+    align-items: center;
+    justify-content: center;
+}
+.prev-next-btn{
+    display: flex;
+    gap: 1rem;
+   
+}
+.next-prev-container{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 2.5rem;
+}
+.prev-next-btn button{
+    background-color: transparent;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--text-color);
+    justify-content: center;
+}
+.fixtures-col img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50% !important;
+}
+
+.modalFixtureContainer {
+    background-color: var(--primary-bg-color);
+    position: absolute;
+    width: 78%;
+    margin: 0 auto;
+    z-index: 10;
+    top: 1rem;
+    border-radius: 8px;
+    height: 100vh;
+    /* border: 1px solid red; */
+
+
+}
+
+.calender-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.icon-container {
+    cursor: pointer;
+}
+
+
+.title {
+    font-size: 12px;
+    color: white;
+    text-transform: capitalize;
+}
+
+.filter-name {
+    color: var(--head-text-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.close-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.allDateColor {
+    margin-top: 2rem;
+}
+
+.allDateColor-section {
+    padding-bottom: 0.5rem;
+}
+
+.allDateColor-section p {
+    color: white;
+}
+
+/* my matches */
+.mymatches-container {
+    height: 510px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.mymatch-para {
+    display: flex;
+    width: 217px;
+    height: 51px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    margin: 1rem 0;
+}
+
+.mymatch-para p {
+    color: var(--black-and-white-white, #FFF);
+    text-align: center;
+
+    /* Button/Medium 14px */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    /* 16.8px */
+}
+
+.mymatch-button button {
+    border-radius: 100px;
+    border: 1px solid var(--grey-grey-02, #8B8B8B);
+    display: inline-flex;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    color: var(--grey-grey-02, #8B8B8B);
+    text-align: center;
+    padding: 10px 24px 10px 16px;
+    gap: 8px;
+    align-self: stretch;
+    background: fixed;
+}
+
+@media (max-width:768px) {
+    .fixture-tab-wrapper {
+        padding-top: 0;
+    }
+    .flex-fixture{
+        flex-direction: row;
+        align-items: center;
+    }
+.fixtures-col{
+    height: 4.5rem;
+}
+    .flexserise-1 {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .fixtures-width {
+        width: 100%;
+    }
+
+    .fixtures-flex {
+        width: 100% !important;
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+        padding: .5rem;
+        gap: .5rem;
+    }
+
+
+    .calender-container {
+        margin-left: 1rem;
+    }
+
+    .fixtures-hundred {
+        padding: 0 !important;
+    }
+}

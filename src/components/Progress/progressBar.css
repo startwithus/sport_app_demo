@@ -1,0 +1,136 @@
+.set-size {
+  font-size: 160px;
+}
+.charts-container:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+.pie-wrapper {
+  height: 1em;
+  width: 1em;
+  float: left;
+  margin: 15px;
+  position: relative;
+}
+.pie-wrapper:nth-child(3n + 1) {
+  clear: both;
+}
+.pie-wrapper .pie {
+  height: 100%;
+  width: 100%;
+  clip: rect(0, 1em, 1em, 0.5em);
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+.pie-wrapper .pie .half-circle {
+  height: 100%;
+  width: 100%;
+  border: 0.1em solid #3498db;
+  border-radius: 50%;
+  clip: rect(0, 0.5em, 1em, 0);
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+.pie-wrapper .label {
+  background: #34495e;
+  border-radius: 50%;
+  bottom: 0.4em;
+  color: #ecf0f1;
+  cursor: default;
+  display: block;
+  font-size: 2rem;
+  left: 0.4em;
+  line-height: 2.8em;
+  position: absolute;
+  right: 0.4em;
+  text-align: center;
+  top: 2rem;
+}
+.pie-wrapper .label .smaller {
+  color: #bdc3c7;
+  font-size: 0.45em;
+  padding-bottom: 20px;
+  vertical-align: super;
+}
+.pie-wrapper .label .smaller .label-win {
+  margin-top: 0.5rem;
+}
+.pie-wrapper .shadow {
+  height: 100%;
+  width: 100%;
+  border: 0.1em solid green;
+  border-radius: 50%;
+}
+.pie-wrapper.style-2 .label {
+  background: none;
+  color: white;
+}
+.pie-wrapper.style-2 .label .smaller {
+  color: white;
+}
+
+
+.pie-wrapper.progress-75 .pie {
+  clip: rect(auto, auto, auto, auto);
+}
+.pie-wrapper.progress-75 .pie .half-circle {
+  border-color: #E87070;
+}
+.pie-wrapper.progress-75 .pie .left-side {
+  transform: rotate(270deg);
+}
+.pie-wrapper.progress-75 .pie .right-side {
+  transform: rotate(180deg);
+}
+
+.pie-wrapper--solid {
+  border-radius: 50%;
+  overflow: hidden;
+}
+.pie-wrapper--solid:before {
+  border-radius: 0 100% 100% 0 / 50%;
+  content: '';
+  display: block;
+  height: 100%;
+  margin-left: 50%;
+  transform-origin: left;
+}
+.pie-wrapper--solid .label {
+  background: transparent;
+}
+
+@media (max-width:600px) {
+  .pie-wrapper{
+      margin: 0;
+  }
+  .pie-wrapper .pie .half-circle{
+      width: 140px;
+      height: 140px;
+  }
+  .pie-wrapper .shadow{
+      width: 140px;
+      height: 140px;
+      /* position: relative; */
+      margin-left: 0.55rem;
+  }
+
+  .pie-wrapper .label{
+      line-height: 1em;
+       top: 4rem;
+  }
+  .pie-wrapper .pie{
+      left: .55rem;
+  }
+
+  .pie-wrapper.style-2 .label{
+      font-size: 1.8rem;
+    
+  }
+
+  .set-size{
+      padding-top: 2rem;
+  }
+}
