@@ -96,25 +96,29 @@ const Login = () => {
             <div className="">
               <label style={{ color: "white" }}>Enter Mobile Number:</label>
               <div className="input-container">
-
                 <div className="input-field-container">
                   <FaPhoneAlt style={{ color: "#8B8B8B", fontSize: "18px" }} />
                   <input
-                    type="text" 
+                    type="text"
                     name="phone"
                     id="phone"
-                    maxLength="10" 
+                    maxLength="10"
                     autoComplete="off"
                     placeholder="Mobile"
                     onChange={(e) => {
-                      
+
                       const value = e.target.value
                         .replace(/[^0-9]/g, "")
                         .slice(0, 10);
-                      formik.setFieldValue("phone", value); 
+                      formik.setFieldValue("phone", value);
                     }}
                     value={formik.values.phone}
                     onBlur={formik.handleBlur}
+                    onKeyDown={(e) => {
+                      if (e.key === 'e' || e.key === 'E' || e.key === '+' || e.key === '-') {
+                        e.preventDefault();
+                      }
+                    }} />
 
                 </div>
               </div>
@@ -143,7 +147,7 @@ const Login = () => {
                     id="password"
                     onChange={formik.handleChange}
                     value={formik.values.password}
-
+                  />
                 </div>
                 <span onClick={handleToggle}>{icon}</span>
               </div>
