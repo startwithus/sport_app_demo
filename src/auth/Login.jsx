@@ -96,6 +96,7 @@ const Login = () => {
             <div className="">
               <label style={{ color: "white" }}>Enter Mobile Number:</label>
               <div className="input-container">
+
                 <div className="input-field-container">
                   <FaPhoneAlt style={{ color: "#8B8B8B", fontSize: "18px" }} />
                   <input
@@ -114,7 +115,7 @@ const Login = () => {
                     }}
                     value={formik.values.phone}
                     onBlur={formik.handleBlur}
-                  />
+
                 </div>
               </div>
               {formik.errors.phone && formik.touched.phone && (
@@ -142,8 +143,7 @@ const Login = () => {
                     id="password"
                     onChange={formik.handleChange}
                     value={formik.values.password}
-                    onBlur={formik.handleBlur}
-                  />
+
                 </div>
                 <span onClick={handleToggle}>{icon}</span>
               </div>

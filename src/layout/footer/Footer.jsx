@@ -15,7 +15,6 @@ import { FcPhoneAndroid } from 'react-icons/fc'
 import { selectTranslations } from '../../reduxx/languageSlice'
 import { useSelector } from 'react-redux';
 
-
 const Footer = () => {
   const translations = useSelector(selectTranslations);
 
@@ -41,7 +40,7 @@ const Footer = () => {
               <img src={logoIcon} alt="" className='icon-img' />  <h2 style={{ color: "white" }}>CRICFAST</h2>
             </div>
 
-            <Link to="https://sports-app-web.s3.ap-south-1.amazonaws.com/frontend-pannel/application-70865fa5-09ce-426b-9689-c692927e69b8.apk" className="dwn-apps">
+            <Link to="https://sports-app-web.s3.ap-south-1.amazonaws.com/frontend-pannel/application-73bae38c-0bab-4dac-8b13-80e174c44e01.apk" target="_blank" className="dwn-apps">
               <FcPhoneAndroid className='mobile-icon' />
               <h2>Download App</h2>
             </Link>
@@ -67,20 +66,20 @@ const Footer = () => {
             </div>
           </div>
           <div className="footer-link-container flex">
-          <ul>
-            <li><Link to="/">{translations['Home']}</Link></li>
-            <li><Link to="/series">{translations['Series']}</Link></li>
-            <li><Link to="/stats">{translations['Stats']}</Link></li>
-            <li><Link to="/fixtures">{translations['Fixtures']}</Link></li>
-            <li><Link to="/about">{translations['About']}</Link></li>
-          </ul>
-          <p>
-            Copyright © 2023 • ABC Company.
-          </p>
-        </div>
+            <ul>
+              <li><Link to="/">{translations['Home']}</Link></li>
+              <li><Link to="/series">{translations['Series']}</Link></li>
+              <li><Link to="/stats">{translations['Stats']}</Link></li>
+              <li><Link to="/fixtures">{translations['Fixtures']}</Link></li>
+              <li><Link to="/about">{translations['About']}</Link></li>
+            </ul>
+            <p>
+              Copyright © 2023 • ABC Company.
+            </p>
+          </div>
         </div>
 
-       
+
       </footer>
 
     </>
