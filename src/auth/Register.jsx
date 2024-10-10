@@ -133,6 +133,7 @@ const Register = () => {
                                     autoComplete='off' type="text"
                                     id="phone"
                                     name="phone"
+                                    maxLength="10"
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                     value={formik.values.phone} />

@@ -110,11 +110,11 @@ const Login = () => {
                 <div className="flex-2">
                   <input type="checkbox" name="" id="check" /> <p className='remember small-regular-font'>Remember Me</p>
                 </div>
-                <p className='forgot small-regular-font' onClick={() => navigate('/forget_password')}>Forget Password</p>
+                <p className='forgot small-regular-font' onClick={() => navigate('/forget_password')}>Forgot Password</p>
               </div>
               <div className="sign-in-btn">
                 <div className="">
-                  <button type='submit'>Sign In</button>
+                  <button type='submit'>Login</button>
                   <p className='small-regular-font or'>Or Sign In with</p>
                   <div className="round-box-container">
                     <div className="round-box">
