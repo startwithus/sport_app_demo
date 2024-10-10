@@ -3,7 +3,7 @@ import './matchDetails.css'
 
 const LiveMatchDetails = ({ matchInfoData, liveCommentary, liveScore, modifiedOvers }) => {
     const newArray = matchInfoData?.play?.live?.recent_overs_repr
-  
+
     return (
         <>
             {
@@ -14,7 +14,6 @@ const LiveMatchDetails = ({ matchInfoData, liveCommentary, liveScore, modifiedOv
                                 <div className='match-score-body'>
                                     <div className='team-logo' >
                                         {matchInfoData?.play?.live?.batting_team === "b" ? <img src={matchInfoData?.team?.b?.url} alt="" /> : <img src={matchInfoData?.team?.a?.url} alt="" />}
-
                                     </div>
                                     <p className='para-name' style={{ fontSize: "1.5rem" }}>{matchInfoData?.play?.live?.batting_team === "b" ? matchInfoData?.team?.b?.code : matchInfoData?.team?.a?.code}</p>
                                     <div className="live-run-rate">
@@ -143,7 +142,7 @@ const LiveMatchDetails = ({ matchInfoData, liveCommentary, liveScore, modifiedOv
                         </div>
                     </div>
 
-                 : 
+                    :
                     <div className="live-match-details">
                         <div className="match-socrecard">
                             <div className='match-score-body'>
@@ -162,9 +161,21 @@ const LiveMatchDetails = ({ matchInfoData, liveCommentary, liveScore, modifiedOv
                                                         <p className='over-name'>({matchInfoData?.play?.innings?.b_1?.overs[0]}.{matchInfoData?.play?.innings?.b_1?.overs[1]})</p>
                                                     </div>
                                                     <div className="" style={{ display: "flex", alignItems: "center", gap: ".2rem", marginTop: ".5rem" }}>
-                                                            <p className='score' style={{ fontSize: "1.5rem" }}>{matchInfoData?.play?.innings?.b_2?.score?.runs}/{matchInfoData?.play?.innings?.b_2?.wickets} </p>
-                                                            <p className='over-name'>({matchInfoData?.play?.innings?.b_2?.overs[0]}.{matchInfoData?.play?.innings?.b_2?.overs[1]})</p>
-                                                        </div> 
+                                                      <p className='score' style={{ fontSize: "1.5rem" }}>
+                                                      {matchInfoData?.play?.innings?.b_2?.score?.runs && matchInfoData?.play?.innings?.b_2?.wickets && (
+                                                            <>
+                                                                {matchInfoData.play.innings.b_2.score.runs}/{matchInfoData.play.innings.b_2.wickets}
+                                                            </>
+                                                        )}
+                                                      </p>
+
+                                                        {matchInfoData?.play?.innings?.b_2?.overs && matchInfoData.play.innings.b_2.overs.length > 0 && (
+                                                            <p className='over-name'>
+                                                                ({matchInfoData.play.innings.b_2.overs[0]}{matchInfoData.play.innings.b_2.overs[1] !== undefined && `.${matchInfoData.play.innings.b_2.overs[1]}`})
+                                                            </p>
+                                                        )}
+                                                    </div>
+
                                                 </div> : <div className="live-score-flex">
                                                     <p className='score' style={{ fontSize: "1.5rem" }}>{matchInfoData?.play.live?.score?.runs}/{matchInfoData?.play?.live?.score?.wickets} </p>
 
@@ -179,9 +190,10 @@ const LiveMatchDetails = ({ matchInfoData, liveCommentary, liveScore, modifiedOv
                                                         <p className='over-name'>({matchInfoData?.play?.innings?.a_1?.overs[0]}.{matchInfoData?.play?.innings?.a_1?.overs[1]})</p>
                                                     </div>
                                                     <div className="" style={{ display: "flex", alignItems: "center", gap: ".2rem", marginTop: ".5rem" }}>
-                                                            <p className='score' style={{ fontSize: "1.5rem" }}>{matchInfoData?.play?.innings?.a_2?.score?.runs}/{matchInfoData?.play?.innings?.a_2?.wickets} </p>
-                                                            <p className='over-name'>({matchInfoData?.play?.innings?.a_2?.overs[0]}.{matchInfoData?.play?.innings?.a_2?.overs[1]})</p>
-                                                        </div> 
+                                                        <p className='score' style={{ fontSize: "1.5rem" }}>{matchInfoData?.play?.innings?.a_2?.score?.runs}/{matchInfoData?.play?.innings?.a_2?.wickets} </p>
+                                                        <p className='over-name'>
+                                                            ({matchInfoData?.play?.innings?.a_2?.overs[0]}.{matchInfoData?.play?.innings?.a_2?.overs[1]})</p>
+                                                    </div>
                                                 </div> : <div className="live-score-flex">
                                                     <p className='score' style={{ fontSize: "1.5rem" }}>{matchInfoData?.play?.live?.score?.runs}/{matchInfoData?.play?.live?.score?.wickets} </p>
                                                     <p className='over-name'>({matchInfoData?.play?.live?.score?.overs[0]}.{matchInfoData?.play?.live?.score?.overs[1]})</p>

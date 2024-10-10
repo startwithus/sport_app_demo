@@ -5,14 +5,14 @@ import { IoVolumeHigh } from "react-icons/io5";
 import { IoMdVolumeOff } from "react-icons/io";
 import { useSpeechSynthesis } from 'react-speech-kit';
 import LiveCommentry from './LiveCommentry';
-const MatchCommentry = ({ matchInfoData, liveCommentary, match_id }) => {
+const MatchCommentry = ({ matchInfoData, liveCommentary, match_key }) => {
   
   const [commentaryData, setCommentaryData] = useState([])
   const [loading, setLoading] = useState(true)
   const [overStats, setOverStats] = useState({})
   const getCommentaryData = async () => {
     setLoading(true)
-    const res = await getCaller(`user/v1/get/commentory/?match_id=${match_id}`)
+    const res = await getCaller(`user/v1/get/commentory/?match_key=${match_key}`)
     setLoading(false)
     if (!Array.isArray(res?.data?.related_balls))
       return;

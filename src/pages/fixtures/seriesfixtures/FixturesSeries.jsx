@@ -31,7 +31,6 @@ const FixturesSeries = () => {
     // Separate current month and back months
     const currentMonthTournaments = [];
     const backMonthsTournaments = [];
-
     res?.data?.forEach(entry => {
       const entryMonth = new Date(entry.month).getMonth() + 1;
       const entryYear = new Date(entry.month).getFullYear();
