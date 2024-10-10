@@ -32,12 +32,12 @@ const Login = () => {
     validationSchema: validationLogin,
     onSubmit: async (values) => {
       const res = await postCaller('user/v1/login', values)
-      if (res.status ===true) {
+      if (res.status === true) {
         alert(res.message)
         localStorage.setItem('token', res.token)
         localStorage.setItem('user', res?.userData?.phone)
-        localStorage.setItem('userName',res?.userData?.name===null?"":res?.userData?.name)
-        localStorage.setItem('userImage', res?.userData?.image===null?"":res?.userData?.image)
+        localStorage.setItem('userName', res?.userData?.name === null ? "" : res?.userData?.name)
+        localStorage.setItem('userImage', res?.userData?.image === null ? "" : res?.userData?.image)
         // localStorage.setItem('user_name', res?.user_name)
         navigate('/')
         window.location.reload()
@@ -47,8 +47,8 @@ const Login = () => {
       }
     },
   });
-  
- 
+
+
   const handleToggle = () => {
     if (type === 'password') {
       setIcon(<FiEye style={{ color: "#8B8B8B", fontSize: "1.2rem", cursor: "pointer" }} />);
@@ -69,7 +69,7 @@ const Login = () => {
       <div className="login-form-container">
         <div className="main-input-container">
           <div className="login-logo">
-            <img src={logoIcon} alt="" className='icon-img' /> <h2 style={{color:"white"}}>CRICFAST</h2>
+            <img src={logoIcon} alt="" className='icon-img' /> <h2 style={{ color: "white" }}>CRICFAST</h2>
           </div>
           <div className="sign-in-content">
             <h2>Login In</h2>
@@ -77,33 +77,38 @@ const Login = () => {
           </div>
           <form onSubmit={formik.handleSubmit}>
             <div className="">
-              <div className="input-container">
-             <div className="input-field-container">
-             <FaPhoneAlt style={{ color: "#8B8B8B",fontSize:"18px" }} />
-                <input type="number" name="phone" id="phone"
-                autoComplete='off'
-                 placeholder='Mobile' onChange={formik.handleChange}
-                  value={formik.values.phone}
-                  onBlur={formik.handleBlur} />
-              </div>
-             </div>
-              {formik.errors.phone && formik.touched.phone && <span className="error" style={{ color: "red",fontSize:"16px",marginTop:"5px" }}>
-                {formik.errors.phone}
-              </span>}
+              <label style={{ color: "white" }}>Enter Mobile Number:</label>
               <div className="input-container">
                 <div className="input-field-container">
-                <MdLockOutline style={{ color: "#8B8B8B",fontSize:"18px"}} />
-                <input type={type} name="password" 
-                autoComplete='off'
-                placeholder='Password' id="password" onChange={formik.handleChange}
-                  value={formik.values.password}
-                  onBlur={formik.handleBlur} />
+                  <FaPhoneAlt style={{ color: "#8B8B8B", fontSize: "18px" }} />
+                  <input type="number" name="phone" id="phone"
+                    autoComplete='off'
+                    placeholder='Mobile' onChange={formik.handleChange}
+                    value={formik.values.phone}
+                    onBlur={formik.handleBlur} />
                 </div>
-               <span onClick={handleToggle}>
+              </div>
+              {formik.errors.phone && formik.touched.phone && <span className="error" style={{ color: "red", fontSize: "16px", marginTop: "5px" }}>
+                {formik.errors.phone}
+              </span>}
+            </div>
+            <div className='' style={{ marginTop: "1rem" }}>
+              <label style={{ color: "white" }}>Enter Password:</label>
+
+              <div className="input-container">
+                <div className="input-field-container">
+                  <MdLockOutline style={{ color: "#8B8B8B", fontSize: "18px" }} />
+                  <input type={type} name="password"
+                    autoComplete='off'
+                    placeholder='Password' id="password" onChange={formik.handleChange}
+                    value={formik.values.password}
+                    onBlur={formik.handleBlur} />
+                </div>
+                <span onClick={handleToggle}>
                   {icon}
                 </span>
               </div>
-              {formik.errors.password && formik.touched.password && <span className="error" style={{ color: "red",fontSize:"16px",marginTop:"5px" }}>
+              {formik.errors.password && formik.touched.password && <span className="error" style={{ color: "red", fontSize: "16px", marginTop: "5px" }}>
                 {formik.errors.password}
               </span>}
               <div className="login-para-container">
