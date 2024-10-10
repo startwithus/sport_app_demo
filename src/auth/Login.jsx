@@ -72,7 +72,7 @@ const Login = () => {
             <img src={logoIcon} alt="" className='icon-img' /> <h2 style={{color:"white"}}>CRICFAST</h2>
           </div>
           <div className="sign-in-content">
-            <h2>Sign in</h2>
+            <h2>Login In</h2>
             <p className='regular-para-2'>Please enter your details</p>
           </div>
           <form onSubmit={formik.handleSubmit}>
