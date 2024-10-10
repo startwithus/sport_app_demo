@@ -76,7 +76,7 @@
 
 .live-match-card {
     border-radius: 8px;
-    background: var(--linear-gradient);
+    background: var(--linear-gradient) !important;
     opacity: .9;
     flex-shrink: 0;
     border-radius: .5rem;

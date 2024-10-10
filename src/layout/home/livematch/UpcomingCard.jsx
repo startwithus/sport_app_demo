@@ -49,9 +49,10 @@ const UpcomingCard = ({ el, currentTheme }) => {
 
   const matchStartDate = new Date(matchStartTime * 1000);
   const currentDate = new Date();
+ 
   return (
-
-    <div className="live-match-card" onClick={() => navigate(`getMatchList/${el.match_id}`)} >
+<Link to={`/getMatchList/${el.match_key}`}>
+    <div className="live-match-card"  >
             <div className="turnament-name-container">
 
               <div className="">
@@ -153,6 +154,7 @@ const UpcomingCard = ({ el, currentTheme }) => {
         }
 
     </div>
+    </Link>
 
   )
 }

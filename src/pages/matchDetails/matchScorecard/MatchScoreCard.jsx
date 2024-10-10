@@ -6,14 +6,14 @@ import TeamTwoScoreCard from './TeamTwoScoreCard'
 import ThirdScoreCard from './ThirdScoreCard'
 import FourthScoreCard from './FourthScoreCard'
 
-const MatchScoreCard = ({ matchInfoData, liveScore, match_id }) => {
+const MatchScoreCard = ({ matchInfoData, liveScore, match_key }) => {
   const [scoreCardData, setScoreCardData] = useState([])
   const [activeTab, setActiveTab] = useState(0)
   const [loading, setLoading] = useState(true)
 
   const getScoreCard = async () => {
     setLoading(true)
-    const res = await getCaller(`user/v1/scorecard/?match_id=${match_id}`)
+    const res = await getCaller(`user/v1/scorecard/?match_key=${match_key}`)
     setLoading(false)
     if (matchInfoData?.status === 'started' && liveScore.length !== 0) {
       setScoreCardData(liveScore.players)

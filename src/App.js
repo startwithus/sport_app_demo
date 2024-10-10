@@ -50,7 +50,7 @@ function App() {
             <Route exact path="/fixtures/days" element={<FixturesDays />} />
             <Route exact path="/about" element={<About />} />
             <Route exact path="/getMatchList" element={<MatchDetails />} />
-            <Route exact path="/getMatchList/:match_id" element={<MatchDetails />} />
+            <Route exact path="/getMatchList/:match_key" element={<MatchDetails />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/register" element={<Register />} />
             <Route exact path="/forget_password" element={<ForgotPassword />} />
