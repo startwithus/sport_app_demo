@@ -181,7 +181,7 @@ const Login = () => {
               </div>
               <div className="sign-in-btn">
                 <div className="">
-                  <button type="submit">Login</button>
+                  <button type="submit">Log In</button>
                   {/* <p className="small-regular-font or">Or Sign In with</p> */}
                   {/* <div className="round-box-container">
                     <div className="round-box">
