@@ -259,13 +259,13 @@ const Register = () => {
 
               <div className="sign-in-btn">
                 <div className="">
-                  <button type="submit">Sign Up</button>
+                  <button type="submit">Register</button>
 
                   <div className="flex-3 create-acc-container">
                     <p className="small-regular-font">
                       Already have an accoun?
                     </p>
-                    <Link to="/login">Sign In</Link>
+                    <Link to="/login">Log In</Link>
                   </div>
                 </div>
               </div>
