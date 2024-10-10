@@ -27,8 +27,11 @@ const Login = () => {
     phone: Yup.string()
       .matches(phoneRegExp, "Phone number is not valid")
       .required("Mobile Number is Required"),
-    password: Yup.string().required("Password is Required"),
-  });
+      password: Yup.string()
+      .required('Password is Required')
+      .min(6, 'Password must be exactly 6 digits') 
+      .max(6, 'Password must be exactly 6 digits'),
+      });
   const formik = useFormik({
     initialValues: {
       phone: "",
@@ -89,15 +92,15 @@ const Login = () => {
             <h2 style={{ color: "white" }}>CRICFAST</h2>
           </div>
           <div className="sign-in-content">
-            <h2>Login In</h2>
+            <h2>Login Here</h2>
             <p className="regular-para-2">Please enter your details</p>
           </div>
           <form onSubmit={formik.handleSubmit}>
             <div className="">
-              <label style={{ color: "white" }}>Enter Mobile Number:</label>
+              <label style={{ color: "white" }}>Mobile Number</label>
               <div className="input-container">
                 <div className="input-field-container">
-                  <FaPhoneAlt style={{ color: "#8B8B8B", fontSize: "18px" }} />
+                  <FaPhoneAlt style={{ color: "white", fontSize: "18px" }} />
                   <input
                     type="text"
                     name="phone"
@@ -132,12 +135,12 @@ const Login = () => {
               )}
             </div>
             <div className="" style={{ marginTop: "1rem" }}>
-              <label style={{ color: "white" }}>Enter Password:</label>
+              <label style={{ color: "white" }}>Password</label>
 
               <div className="input-container">
                 <div className="input-field-container">
                   <MdLockOutline
-                    style={{ color: "#8B8B8B", fontSize: "18px" }}
+                    style={{ color: "white", fontSize: "18px" }}
                   />
                   <input
                     type={type}
@@ -147,6 +150,7 @@ const Login = () => {
                     id="password"
                     onChange={formik.handleChange}
                     value={formik.values.password}
+
                   />
                 </div>
                 <span onClick={handleToggle}>{icon}</span>
@@ -160,7 +164,7 @@ const Login = () => {
                 </span>
               )}
               <div className="login-para-container">
-                <div className="flex-2">
+                <div className="flex">
                   <input type="checkbox" name="" id="check" />{" "}
                   <p className="remember small-regular-font">Remember Me</p>
                 </div>
@@ -174,15 +178,15 @@ const Login = () => {
               <div className="sign-in-btn">
                 <div className="">
                   <button type="submit">Login</button>
-                  <p className="small-regular-font or">Or Sign In with</p>
-                  <div className="round-box-container">
+                  {/* <p className="small-regular-font or">Or Sign In with</p> */}
+                  {/* <div className="round-box-container">
                     <div className="round-box">
                       <img src={google} alt="" />
                     </div>
                     <div className="round-box">
                       <img src={fb} alt="" />
                     </div>
-                  </div>
+                  </div> */}
                   <div className="flex-3 create-acc-container">
                     <p className="small-regular-font">Don’t have an account?</p>
                     <Link to="/register">Register</Link>
