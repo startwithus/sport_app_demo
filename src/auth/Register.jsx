@@ -18,6 +18,9 @@ const Register = () => {
     const [type, setType] = useState('password');
     const [icon, setIcon] = useState(<FiEyeOff style={{ color: "#8B8B8B", fontSize: "1.2rem", cursor: "pointer" }} />);
     const [otpId, setOtpId] = useState("")
+
+
+
     useEffect(() => {
         let interval;
 
@@ -39,6 +42,7 @@ const Register = () => {
         password: "",
         otp: "",
     };
+
 
     // const validationSchema = Yup.object().shape({
     //     mobileNumber: Yup.string()
