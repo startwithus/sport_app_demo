@@ -79,13 +79,19 @@ const Login = () => {
             <div className="">
               <label style={{ color: "white" }}>Enter Mobile Number:</label>
               <div className="input-container">
+
                 <div className="input-field-container">
                   <FaPhoneAlt style={{ color: "#8B8B8B", fontSize: "18px" }} />
                   <input type="number" name="phone" id="phone"
                     autoComplete='off'
                     placeholder='Mobile' onChange={formik.handleChange}
                     value={formik.values.phone}
-                    onBlur={formik.handleBlur} />
+                    onBlur={formik.handleBlur}
+                    onKeyDown={(e) => {
+                      if (e.key === 'e' || e.key === 'E' || e.key === '+' || e.key === '-') {
+                        e.preventDefault();
+                      }
+                    }} />
                 </div>
               </div>
               {formik.errors.phone && formik.touched.phone && <span className="error" style={{ color: "red", fontSize: "16px", marginTop: "5px" }}>
@@ -103,6 +109,7 @@ const Login = () => {
                     placeholder='Password' id="password" onChange={formik.handleChange}
                     value={formik.values.password}
                     onBlur={formik.handleBlur} />
+
                 </div>
                 <span onClick={handleToggle}>
                   {icon}
