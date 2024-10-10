@@ -109,7 +109,6 @@ const Login = () => {
                     autoComplete="off"
                     placeholder="Mobile"
                     onChange={(e) => {
-
                       const value = e.target.value
                         .replace(/[^0-9]/g, "")
                         .slice(0, 10);
@@ -118,11 +117,16 @@ const Login = () => {
                     value={formik.values.phone}
                     onBlur={formik.handleBlur}
                     onKeyDown={(e) => {
-                      if (e.key === 'e' || e.key === 'E' || e.key === '+' || e.key === '-') {
+                      if (
+                        e.key === "e" ||
+                        e.key === "E" ||
+                        e.key === "+" ||
+                        e.key === "-"
+                      ) {
                         e.preventDefault();
                       }
-                    }} />
-
+                    }}
+                  />
                 </div>
               </div>
               {formik.errors.phone && formik.touched.phone && (
