@@ -7,14 +7,14 @@ import { useSelector } from 'react-redux';
 import TeamASquads from './TeamASquads'
 import TeamBSquads from './TeamBSquads'
 
-const MatchSquads = ({ match_id, matchInfoData }) => {
+const MatchSquads = ({ match_key, matchInfoData }) => {
 
   const [matchSquad, setMatchSquad] = useState({})
   const translations = useSelector(selectTranslations)
 
   const [activeTab, setActiveTab] = useState(0)
   const getMatchSquad = async () => {
-    const res = await getCaller(`user/v1/get/squad?match_id=${match_id}`)
+    const res = await getCaller(`user/v1/get/squad?match_key=${match_key}`)
     setMatchSquad(res)
    
   }
