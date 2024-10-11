@@ -52,7 +52,7 @@ footer {
 }
 
 .footer-phone-flex {
-  padding: 32px 0px 32px 0px;
+  padding: 22px 0px 22px 0px;
 }
 
 .social-icon-container {
@@ -78,7 +78,7 @@ footer {
 }
 
 .footer-link-container {
-  padding-top: 32px;
+  padding-top: 11px;
 }
 
 .footer-link-container p {
@@ -102,9 +102,9 @@ footer {
   font-size: var(--regular-font-size);
   font-weight: 500;
 }
-.footer-link-container ul li a:hover{
+.footer-link-container ul li a:hover {
   color: var(--tab-color);
-  transition: .4s all linear;
+  transition: 0.4s all linear;
 }
 @media (max-width: 768px) {
   footer {

@@ -28,7 +28,7 @@
 }
 
 .sign-in-content h2 {
-  color: var(--text-color);
+  color: white;
   text-align: center;
   font-size: 1.5rem;
   font-style: normal;
@@ -37,7 +37,10 @@
   /* 36px */
   padding-bottom: 0.2rem;
 }
-
+.mandatory {
+  color: red;
+  font-weight: bold;
+}
 .input-container {
   display: flex;
   align-items: center;
@@ -183,7 +186,7 @@
     padding: 4rem 1rem 1rem 1rem;
   }
   .login-container {
-    height: auto;
+    /* height: auto; */
   }
   .input-container {
     width: 100%;

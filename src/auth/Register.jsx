@@ -18,7 +18,7 @@ const Register = () => {
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState(
     <FiEyeOff
-      style={{ color: "#8B8B8B", fontSize: "1.2rem", cursor: "pointer" }}
+      style={{ color: "white", fontSize: "1.2rem", cursor: "pointer" }}
     />
   );
   const [otpId, setOtpId] = useState("");
@@ -73,14 +73,14 @@ const Register = () => {
     if (type === "password") {
       setIcon(
         <FiEye
-          style={{ color: "#8B8B8B", fontSize: "1.2rem", cursor: "pointer" }}
+          style={{ color: "white", fontSize: "1.2rem", cursor: "pointer" }}
         />
       );
       setType("text");
     } else {
       setIcon(
         <FiEyeOff
-          style={{ color: "#8B8B8B", fontSize: "1.2rem", cursor: "pointer" }}
+          style={{ color: "white", fontSize: "1.2rem", cursor: "pointer" }}
         />
       );
       setType("password");
@@ -130,7 +130,7 @@ const Register = () => {
     onSubmit,
   });
 
-  
+
   return (
     <div className="login-container">
       <div className="login-form-container">
@@ -141,37 +141,43 @@ const Register = () => {
           </div>
           <div className="sign-in-content">
             <h2>Sign Up</h2>
-            <p className="regular-para-2">Please enter your details</p>
+            <p className="regular-para-2">Please Enter Your Mobile Number</p>
           </div>
           <form onSubmit={formik.handleSubmit}>
             <div className="">
+              <label style={{ color: "white" }}>
+                Mobile Number<span className="mandatory">*</span>
+              </label>
               <div className="input-container">
                 <div className="input-field-container">
-                  <FaPhoneAlt style={{ color: "#8B8B8B", fontSize: "18px" }} />
+                  <FaPhoneAlt style={{ color: "white", fontSize: "18px" }} />
                   <input
-                    placeholder="Phone"
+                    placeholder="Enter Mobile Number"
                     autoComplete="off"
-                    type="text" 
+                    type="text"
                     id="phone"
                     name="phone"
                     maxLength="10"
                     onChange={(e) => {
-                      
+
                       const value = e.target.value
                         .replace(/[^0-9]/g, "")
                         .slice(0, 10);
-                      formik.setFieldValue("phone", value); 
+                      formik.setFieldValue("phone", value);
                     }}
                     onBlur={formik.handleBlur}
                     value={formik.values.phone}
                   />
                 </div>
+                {formik.touched.phone && formik.errors.phone && (
+                  <div className="error">{formik.errors.phone}</div>
+                )}
               </div>
               <div className="otp-container">
                 {!otpSent && (
                   <button
                     type="button"
-                    disabled={formik.values.phone.length !== 10} 
+                    disabled={formik.values.phone.length !== 10}
                     // disabled={!formik.values.phone}
                     className="otp-send"
                     onClick={handleGetOtp}
@@ -232,36 +238,42 @@ const Register = () => {
                 <div className="error">{formik.errors.mobileNumber}</div>
               )}
 
-              <div className="input-container">
-                <div className="input-field-container">
-                  <MdLockOutline
-                    style={{ color: "#8B8B8B", fontSize: "18px" }}
-                  />
-                  <input
-                    type="password"
-                    disabled={!formik.values.otp}
-                    name="password"
-                    placeholder="Password"
-                    id="password"
-                    onChange={formik.handleChange}
-                    autoComplete="off"
-                    onBlur={formik.handleBlur}
-                    value={formik.values.password}
-                  />
-                </div>
-                <span onClick={handleToggle}>{icon}</span>
-                {formik.errors.password && formik.touched.password && (
-                  <span className="error" style={{ color: "red" }}>
-                    {formik.errors.password}
-                  </span>
-                )}
-              </div>
+              <div className="" style={{ marginTop: "0.3rem" }}>
+                <label style={{ color: "white" }}>
+                  Password<span className="mandatory">*</span>
+                </label>
+                <div className="input-container">
 
+                  <div className="input-field-container">
+                    <MdLockOutline
+                      style={{ color: "white", fontSize: "18px" }}
+                    />
+                    <input
+                      type="password"
+                      disabled={!formik.values.otp}
+                      name="password"
+                      placeholder="Password"
+                      id="password"
+                      onChange={formik.handleChange}
+                      autoComplete="off"
+                      onBlur={formik.handleBlur}
+                      value={formik.values.password}
+                    />
+                  </div>
+                  <span onClick={handleToggle}>{icon}</span>
+                  {formik.errors.password && formik.touched.password && (
+                    <span className="error" style={{ color: "red" }}>
+                      {formik.errors.password}
+                    </span>
+                  )}
+                </div>
+              </div>
               <div className="sign-in-btn">
                 <div className="">
-                  <button type="submit">Register</button>
+                  <button type="submit" disabled={!(formik.isValid && formik.dirty)}>
+                  Register</button>
 
-                  <div className="flex-3 create-acc-container">
+                  <div className="flex-3 create-acc-container" style={{ gap: "0.3rem" }}>
                     <p className="small-regular-font">
                       Already have an accoun?
                     </p>

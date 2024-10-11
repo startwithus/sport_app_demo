@@ -27,11 +27,13 @@ const Login = () => {
     phone: Yup.string()
       .matches(phoneRegExp, "Phone number is not valid")
       .required("Mobile Number is Required"),
-      password: Yup.string()
+    password: Yup.string()
       .required('Password is Required')
-      .min(6, 'Password must be exactly 6 digits') 
-      .max(6, 'Password must be exactly 6 digits'),
-      });
+      .min(6, 'Password must be exactly 6 digits')
+      .max(6, 'Password must be exactly 6 digits')
+      .matches(/^\S*$/, 'Password cannot contain spaces'), // Disallow spaces
+
+  });
   const formik = useFormik({
     initialValues: {
       phone: "",
@@ -65,14 +67,14 @@ const Login = () => {
     if (type === "password") {
       setIcon(
         <FiEye
-          style={{ color: "#8B8B8B", fontSize: "1.2rem", cursor: "pointer" }}
+          style={{ color: "white", fontSize: "1.2rem", cursor: "pointer" }}
         />
       );
       setType("text");
     } else {
       setIcon(
         <FiEyeOff
-          style={{ color: "#8B8B8B", fontSize: "1.2rem", cursor: "pointer" }}
+          style={{ color: "white", fontSize: "1.2rem", cursor: "pointer" }}
         />
       );
       setType("password");
@@ -93,11 +95,13 @@ const Login = () => {
           </div>
           <div className="sign-in-content">
             <h2>Login Here</h2>
-            <p className="regular-para-2">Please enter your details</p>
+            <p className="regular-para-2">Please Enter Your Details</p>
           </div>
           <form onSubmit={formik.handleSubmit}>
             <div className="">
-              <label style={{ color: "white" }}>Mobile Number</label>
+              <label style={{ color: "white" }}>
+                Mobile Number<span className="mandatory">*</span>
+              </label>
               <div className="input-container">
                 <div className="input-field-container">
                   <FaPhoneAlt style={{ color: "white", fontSize: "18px" }} />
@@ -107,7 +111,7 @@ const Login = () => {
                     id="phone"
                     maxLength="10"
                     autoComplete="off"
-                    placeholder="Mobile"
+                    placeholder="Enter Mobile Number"
                     onChange={(e) => {
                       const value = e.target.value
                         .replace(/[^0-9]/g, "")
@@ -139,8 +143,9 @@ const Login = () => {
               )}
             </div>
             <div className="" style={{ marginTop: "1rem" }}>
-              <label style={{ color: "white" }}>Password</label>
-
+              <label style={{ color: "white" }}>
+                Password<span className="mandatory">*</span>
+              </label>
               <div className="input-container">
                 <div className="input-field-container">
                   <MdLockOutline
@@ -149,12 +154,21 @@ const Login = () => {
                   <input
                     type={type}
                     name="password"
-                    autoComplete="off"
-                    placeholder="Password"
                     id="password"
+                    autoComplete="off"
+                    placeholder="Enter Password"
                     onChange={formik.handleChange}
                     value={formik.values.password}
-
+                    onBlur={formik.handleBlur}
+                    maxLength={6}
+                    onKeyDown={(e) => {
+                      if (e.key === ' ') {
+                        e.preventDefault();
+                      }
+                    }}
+                    onInput={(e) => {
+                      e.target.value = e.target.value.replace(/\s/g, '');
+                    }}
                   />
                 </div>
                 <span onClick={handleToggle}>{icon}</span>
@@ -168,7 +182,7 @@ const Login = () => {
                 </span>
               )}
               <div className="login-para-container">
-                <div className="flex">
+                <div className="flex" style={{ gap: "0.3rem" }}>
                   <input type="checkbox" name="" id="check" />{" "}
                   <p className="remember small-regular-font">Remember Me</p>
                 </div>
@@ -191,9 +205,9 @@ const Login = () => {
                       <img src={fb} alt="" />
                     </div>
                   </div> */}
-                  <div className="flex-3 create-acc-container">
+                  <div className="flex-3 create-acc-container" style={{ gap: "0.3rem" }}>
                     <p className="small-regular-font">Don’t have an account?</p>
-                    <Link to="/register">Register</Link>
+                    <Link to="/register"> Register</Link>
                   </div>
                 </div>
               </div>
