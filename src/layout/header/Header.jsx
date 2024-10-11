@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import '../header/header.css'
 import logoIcon from '../../assets/Icon.svg'
 import userIcon from '../../assets/person-dummy.jpg'
@@ -10,6 +10,7 @@ import seriesIcon from '../../assets/seriesIcon.svg'
 import home from '../../assets/home.svg'
 import fixture from '../../assets/calender.svg'
 import { IoIosStats } from 'react-icons/io'
+import { TbCloudDownload } from "react-icons/tb";
 
 const Header = () => {
   const navigate = useNavigate()
@@ -44,6 +45,20 @@ const Header = () => {
       <div className={isMobile ? 'navbar-mobile' : 'navbar-container'}>
         <div className="logo-img flex-2" onClick={() => navigate('/')}>
           <img src={logoIcon} alt="" className='icon-img' /> <h2 style={{ color: "white" }}>CRICFAST</h2>
+
+        </div>
+        <div className='mobile-view-lang'>
+          <LanguageSelector />
+          <div>
+            <Link
+              to="https://sports-app-web.s3.ap-south-1.amazonaws.com/frontend-pannel/application-73bae38c-0bab-4dac-8b13-80e174c44e01.apk"
+              target="_blank"
+            >
+              <button className="download-button">
+                <TbCloudDownload className="download-icon" /> App
+              </button>
+            </Link>
+          </div>
         </div>
         <ul className={isMobile ? 'nav-links-mobile' : 'nav-links'}>
           <li>
@@ -63,7 +78,7 @@ const Header = () => {
             <NavLink to="/about">{translations['About']}</NavLink>
           </li>
           <li>
-            <div className="">
+            <div className="desktop-view">
               <LanguageSelector />
             </div>
           </li>
@@ -84,7 +99,7 @@ const Header = () => {
                 return isActive ? "active" : inActive ? "inactive" : "";
               }}
               >
-              
+
                 <img src={seriesIcon} alt="" className='user-icon' />
               </NavLink>
               <NavLink to="/series" style={({ isActive, isPending }) => {

@@ -92,45 +92,46 @@ const LiveMatchCard = () => {
     ]
 
   };
+  const totalStartedMatches = getMatchListData?.filter(match => match.status === 'started').length || 0;
 
   return (
     <div className="slider-header">
       <div className='layout-container'>
-        <div className="head-wrapper flex">
-          <p>{translations['Matches']}</p>
+        <div className="head-wrapper" style={{ display: "flex" }}>
+          <p>{translations['Matches']} {totalStartedMatches > 0 && <span>({totalStartedMatches})</span>} </p>
 
         </div>
         <div className="split-gradient"></div>
-       {
-        getMatchListData?.length>0 ? <div className="">
-        <div className="left-arrow-position" style={{ display: currentSlide === 0 ? 'none' : 'block', }}>
-          <img
-            src={leftArrow}
-            alt=""
-            style={{ marginRight: "1rem", cursor: "pointer" }}
-            onClick={sliderRef?.slickPrev}
-          />
-
-        </div>
-        <div className="right-arrow-position" style={{ display: currentSlide === getMatchListData - 1 ? 'none' : 'block', }}>
-
-          <img
-            src={rightArrow}
-            alt=""
-            style={{ cursor: "pointer" }}
-            onClick={sliderRef?.slickNext}
-          />
-        </div>
-      </div>:null
-       }
         {
-          loading ?( <div className="loader-wrapper"
+          getMatchListData?.length > 0 ? <div className="">
+            <div className="left-arrow-position" style={{ display: currentSlide === 0 ? 'none' : 'block', }}>
+              <img
+                src={leftArrow}
+                alt=""
+                style={{ marginRight: "1rem", cursor: "pointer" }}
+                onClick={sliderRef?.slickPrev}
+              />
+
+            </div>
+            <div className="right-arrow-position" style={{ display: currentSlide === getMatchListData - 1 ? 'none' : 'block', }}>
+
+              <img
+                src={rightArrow}
+                alt=""
+                style={{ cursor: "pointer" }}
+                onClick={sliderRef?.slickNext}
+              />
+            </div>
+          </div> : null
+        }
+        {
+          loading ? (<div className="loader-wrapper"
           >
             <div className='loader'>
             </div>
           </div>
-        ):(
-              <Slider {...settings} ref={setSliderRef} className='live-slider-container' >
+          ) : (
+            <Slider {...settings} ref={setSliderRef} className='live-slider-container' >
 
               {limitedMatches?.length > 0 ? limitedMatches.map((el, i) => (
                 <div key={i}>
@@ -143,19 +144,19 @@ const LiveMatchCard = () => {
                   }
                 </div>
               )) : <SkeletonTheme color="#202020" highlightColor="">
-              <div className="skeleton-row">
-                <Skeleton height={192} width={350} className="skeleton-card" />
-                <Skeleton height={192} width={350} className="skeleton-card " />
-                <Skeleton height={192} width={350} className="skeleton-card" />
-              </div>
-             
-            </SkeletonTheme>
-    
+                <div className="skeleton-row">
+                  <Skeleton height={192} width={350} className="skeleton-card" />
+                  <Skeleton height={192} width={350} className="skeleton-card " />
+                  <Skeleton height={192} width={350} className="skeleton-card" />
+                </div>
+
+              </SkeletonTheme>
+
               }
             </Slider>
-        )
+          )
         }
-    
+
       </div>
     </div>
   )

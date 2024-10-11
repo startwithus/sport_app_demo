@@ -63,10 +63,10 @@ const ForgotPassword = () => {
     };
     const handleToggle = () => {
         if (type === 'password') {
-            setIcon(<FiEye style={{ color: "#8B8B8B", fontSize: "1.2rem", cursor: "pointer" }} />);
+            setIcon(<FiEye style={{ color: "white", fontSize: "1.2rem", cursor: "pointer" }} />);
             setType('text')
         } else {
-            setIcon(<FiEyeOff style={{ color: "#8B8B8B", fontSize: "1.2rem", cursor: "pointer" }} />)
+            setIcon(<FiEyeOff style={{ color: "white", fontSize: "1.2rem", cursor: "pointer" }} />)
             setType('password')
         }
     }
