@@ -56,6 +56,9 @@ const LiveMatchCard = () => {
     speed: 500,
     initialSlide: 0,
     afterChange: (index) => setCurrentSlide(index),
+    draggable: true, // Ensure draggable is true
+    swipe: true,     // Enable swipe functionality
+    touchMove: true, // Ensure touch move is enabled
     responsive: [
 
       {

@@ -85,6 +85,8 @@
     cursor: pointer;
     background-size: cover;
     z-index: 2;
+    touch-action: pan-y pan-x;
+    overflow-x: auto;
 }
 
 .turnament-name-container {
