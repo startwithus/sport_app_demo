@@ -61,37 +61,37 @@ const ThemeProfile = () => {
 
   return (
     <>
-        <div className='profile-match-container'>
+      <div className='profile-match-container'>
         <div className='edit-section'>
-                            <h3>{translations['']}</h3>
-                        </div>
-          <div className=''>
-            {
-              theme.map(e => (
-                <div className='theme-section-color'>
-                  <div className='theme-section'>
-                    <div className='theme-color'>
-                      <div className='theme-black' style={{ backgroundColor: e.color }}>
-                      </div>
-                      <div className='theme-name'>
-                        <h4>{e.name}</h4>
-                      </div>
+          <h3>{translations['']}</h3>
+        </div>
+        <div className=''>
+          {
+            theme.map(e => (
+              <div className='theme-section-color'>
+                <div className='theme-section'>
+                  <div className='theme-color'>
+                    <div className='theme-black' style={{ backgroundColor: e.color }}>
                     </div>
-                    <div className='radio'>
-                      {
-                        e.status ? <img src={radioButton} alt='' /> : <img src={radiounchecked} alt="" />
-                      }
+                    <div className='theme-name'>
+                      <h4>{e.name}</h4>
                     </div>
                   </div>
+                  <div className='radio'>
+                    {
+                      e.status ? <img src={radioButton} alt='' /> : <img src={radiounchecked} alt="" />
+                    }
+                  </div>
                 </div>
+              </div>
 
-              ))
-            }
+            ))
+          }
 
 
-          </div>
         </div>
-  
+      </div>
+
     </>
   )
 }

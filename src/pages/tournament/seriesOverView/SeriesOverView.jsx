@@ -42,6 +42,7 @@ const SeriesOverView = ({ matchDataByTou, activeTab, setActiveTab }) => {
         <Link to="#" onClick={() => setActiveTab(1)}>{translations['View']}</Link>
       </div>
       <div className='feature-section-match'>
+
         {
           getFeatureMatches?.length > 0 ? getFeatureMatches?.map((el, i) => (
             <Link to={`/getMatchList/${el.match_key}`} key={i}>
@@ -81,9 +82,9 @@ const SeriesOverView = ({ matchDataByTou, activeTab, setActiveTab }) => {
                   }
                 </div>
                 <div className='featured-match-container-1'>
-                <div className=''>
-                <p className='regular-para' style={{ fontWeight: "400" }}>{isMobile ? el?.team?.b?.code : el?.team?.b?.name}</p>
-                </div>
+                  <div className=''>
+                    <p className='regular-para' style={{ fontWeight: "400" }}>{isMobile ? el?.team?.b?.code : el?.team?.b?.name}</p>
+                  </div>
                   <div className='team-logo'>
                     <img src={el?.team?.b?.url} alt='' />
                   </div>

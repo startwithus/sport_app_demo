@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector}  from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Slider from "react-slick";
 import { selectTranslations } from '../../../reduxx/languageSlice.js';
@@ -11,7 +11,7 @@ const MatchUpdates = () => {
   const navigate = useNavigate()
   const [newsData, setNewsData] = useState([])
   const translations = useSelector(selectTranslations)
-  const getNewsData = async () => { 
+  const getNewsData = async () => {
     const res = await getCaller('user/v1/get/all/news?limit=3&offset=0')
     setNewsData(res?.data)
   }
@@ -68,7 +68,7 @@ const MatchUpdates = () => {
   return (
     <div>
       <div className="head-wrapper flex">
-        <p className='batting-career-name'>{translations['MatchUpdate' ]}</p> <Link to="/news/allNews">{translations['View']}</Link>
+        <p className='batting-career-name'>{translations['MatchUpdate']}</p> <Link to="/news/allNews">{translations['View']}</Link>
       </div>
       <div className='fantasy-player-match'>
         <Slider {...settings} >
@@ -80,12 +80,12 @@ const MatchUpdates = () => {
                 }
               })}>
                 <div className="new-img">
-                  <img src={el?.cover_image } alt="" />
+                  <img src={el?.cover_image} alt="" />
                 </div>
                 <div className="match-news-container">
                   <div className="news-title-head flex">
                     <h2 className='regular-para'>{el?.heading.substring(0, 20) + "..."}</h2>
-                    <p className='small-para'>{(new Date(el?.created_at)?.toLocaleString()?.slice(0, 10))}</p>
+                    <p className='small-para'>{(new Date(el?.created_at)?.toLocaleString()?.slice(0, 9))}</p>
                   </div>
                   <div className="news-title-para">
                     <p className='regular-para-2'>{el?.content.slice(0, 100)}</p>
