@@ -101,7 +101,7 @@ const SeriesLeagues = () => {
     { label: `${translations['PointTable']}`, content: <SeriesPointsTable matchDataByTou={matchDataByTou} /> },
     { label: `${translations['Stats']}`, content: <StatsWeb matchDataByTou={matchDataByTou} /> },
     { label: `${translations['News']}`, content: <MatchUpdates matchDataByTou={matchDataByTou} /> },
-    { label: `${translations['SeriesInfo']}`, content: <SeriesInfoSeries matchDataByTou={matchDataByTou} /> },
+    { label: `${translations['Info']}`, content: <SeriesInfoSeries matchDataByTou={matchDataByTou} /> },
 
   ];
   console.log(seriesData)
