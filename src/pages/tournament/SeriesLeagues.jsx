@@ -17,6 +17,7 @@ import './sliderseries.css'
 import SeriesPointsTable from './seriesPointsTable/SeriesPointTable';
 import { selectTranslations } from '../../reduxx/languageSlice.js';
 import { useSelector } from 'react-redux';
+import { IoIosNotificationsOutline } from "react-icons/io";
 
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 const SeriesLeagues = () => {
@@ -152,9 +153,14 @@ const SeriesLeagues = () => {
             <>
               {
                 matchDataByTou ? <div>
-                  <div className="t-name">
-                    <p>{matchDataByTou?.tournamentName}</p>
-                    <h5>{(new Date(matchDataByTou?.startDate * 1000).toLocaleString()).split(',')[0]} - {(new Date(matchDataByTou?.lastScheduledMatchDate * 1000).toLocaleString()).split(',')[0]}</h5>
+                  <div className='noti-section-icon'>
+                    <div className="t-name">
+                      <p>{matchDataByTou?.tournamentName}</p>
+                      <h5>{(new Date(matchDataByTou?.startDate * 1000).toLocaleString()).split(',')[0]} - {(new Date(matchDataByTou?.lastScheduledMatchDate * 1000).toLocaleString()).split(',')[0]}</h5>
+                    </div>
+                    <div className=''>
+                      <p className='noti-icon'><IoIosNotificationsOutline /></p>
+                    </div>
                   </div>
                   <div className="fixture-tab-wrapper">
                     <TabsItem tabData={tabData} matchDataByTou={matchDataByTou} activeTab={activeTab} setActiveTab={setActiveTab} />

@@ -7,11 +7,12 @@ import SeriesPointsTable from '../seriesPointsTable/SeriesPointTable'
 import { Link } from 'react-router-dom'
 import { selectTranslations } from '../../../reduxx/languageSlice';
 import { useSelector } from 'react-redux';
+import { formateTime } from '../../../reduxx/store'
 
 const SeriesOverView = ({ matchDataByTou, activeTab, setActiveTab }) => {
   const translations = useSelector(selectTranslations)
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 6;
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const getFeatureMatches = matchDataByTou?.teamsDetails?.matches?.slice(indexOfFirstItem, indexOfLastItem);
@@ -36,7 +37,7 @@ const SeriesOverView = ({ matchDataByTou, activeTab, setActiveTab }) => {
 
   return (
     <div>
-      <SeriesInfoSeries matchDataByTou={matchDataByTou} />
+      {/* <SeriesInfoSeries matchDataByTou={matchDataByTou} /> */}
       <div className="head-wrapper flex">
         <p>{translations['Featured']}</p>
         <Link to="#" onClick={() => setActiveTab(1)}>{translations['View']}</Link>
@@ -46,6 +47,8 @@ const SeriesOverView = ({ matchDataByTou, activeTab, setActiveTab }) => {
         {
           getFeatureMatches?.length > 0 ? getFeatureMatches?.map((el, i) => (
             <Link to={`/getMatchList/${el.match_key}`} key={i}>
+              <p style={{ color: "white", marginBottom: "0.5rem" }}>{(new Date(el?.start_at * 1000).toLocaleString('default', { month: 'long', day: "2-digit", year: "numeric", weekday: "long", }))} </p>
+
               <div className="fetured-main-container" key={i}>
                 <div className='featured-match-container-2'>
                   <div className='team-logo' >
@@ -75,9 +78,10 @@ const SeriesOverView = ({ matchDataByTou, activeTab, setActiveTab }) => {
                       </div> :
                       <div>
                         <p className='regular-para'>
-                          {(new Date(el.start_at * 1000).toLocaleString()).split(",")[0]}
+                          {(new Date(el?.start_at * 1000).toLocaleString('default', { month: 'short', day: "2-digit" }))}
                         </p>
-                        <p style={{ textAlign: "center", color: "#F44464" }}>{(new Date(el?.start_at * 1000).toLocaleString()).split(",")[1]}</p>
+                        <p style={{ textAlign: "center", color: "#F44464" }}>{formateTime(el.start_at * 1000)}
+                        </p>
                       </div>
                   }
                 </div>
@@ -119,7 +123,7 @@ const SeriesOverView = ({ matchDataByTou, activeTab, setActiveTab }) => {
           }
         </div>
       </div>
-      <MoreSeasonsSeries matchDataByTou={matchDataByTou} />
+      {/* <MoreSeasonsSeries matchDataByTou={matchDataByTou} /> */}
     </div>
   )
 }
