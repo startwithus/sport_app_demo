@@ -20,10 +20,10 @@ const SquadsModal = ({ squadsData }) => {
           <p>All</p>
         </div>
         <div className={`group-tab ${tabActive === 1 ? "active-group-tab" : ""}`} onClick={() => setTabActive(1)} >
-          <p>Bat</p>
+          <p>Batter</p>
         </div>
         <div className={`group-tab ${tabActive === 2 ? "active-group-tab" : ""}`} onClick={() => setTabActive(2)} >
-          <p>Bowl</p>
+          <p>Bowler</p>
         </div>
         <div className={`group-tab ${tabActive === 3 ? "active-group-tab" : ""}`} onClick={() => setTabActive(3)} >
           <p>AR</p>

@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import SquadsModal from '../../../components/modal/SquadsModal'
 import '../series.css'
+import { IoIosArrowForward } from "react-icons/io";
+
 export const TeamSquadSeries = ({ matchDataByTou }) => {
- 
+
   const [activeIndex, setActiveIndex] = useState()
   const [squadsData, setSquadsData] = useState({})
   const handleModal = async (item, index) => {
@@ -15,10 +17,10 @@ export const TeamSquadSeries = ({ matchDataByTou }) => {
       <div></div>
     )
   }
- 
+
 
   return (
-    <div style={{height:"auto"}}>
+    <div style={{ height: "auto" }}>
       <div className="head-wrapper flex">
         <p>{matchDataByTou?.tournamentName} Squads</p>
         {/* <Link to="#" >View All</Link> */}
@@ -29,18 +31,23 @@ export const TeamSquadSeries = ({ matchDataByTou }) => {
             matchDataByTou?.teamsDetails?.teams?.length > 0 ? matchDataByTou?.teamsDetails?.teams?.map((el, index) => (
               <div className={`section-squad-team ${activeIndex === el?.code ? "active-team" : ""}`} key={index} onClick={() => handleModal(el, index)}>
                 <div className='squads-flag' >
-                  <div className='team-logo'>
-                    <img src={el?.url} alt='' />
+                  <div className='arrow-icon'>
+                    <div className='team-logo' style={{ gap: "15px" }}>
+                      <img src={el?.url} alt='' />
+                      <p>{el?.name}</p>
+                    </div>
+                    <div className=''>
+                      <p style={{ color: "white" }}><IoIosArrowForward /></p>
+                    </div>
                   </div>
-                  <p>{el?.name}</p>
                 </div>
               </div>
             )) : null
-            
+
           }
         </div>
         {
-          activeIndex && (<SquadsModal squadsData={squadsData}/>)
+          activeIndex && (<SquadsModal squadsData={squadsData} />)
         }
       </div>
     </div>

@@ -28,7 +28,7 @@
   font-size: 14px;
   text-align: center;
   font-weight: 600;
-  color: #1B9B46;
+  color: #1b9b46;
 }
 
 .left-arrow-position-1 {
@@ -46,7 +46,7 @@
 
 .fetured-main-container {
   display: flex;
-  justify-content: center!important;
+  justify-content: center !important;
   /* width: 100%; */
   /* align-items: center; */
   background-color: var(--primary-bg2);
@@ -55,11 +55,10 @@
   padding: 24px 0px 24px 0px;
 }
 
-
 .active-side-1 {
   color: red;
 }
-.featured-match-container-2{
+.featured-match-container-2 {
   display: flex;
   gap: 8px;
   align-items: center;
@@ -73,16 +72,14 @@
   justify-content: center;
   width: 30%;
   /* justify-content: space-between; */
-
 }
-.featured-match-container-1{
+.featured-match-container-1 {
   display: flex;
   gap: 8px;
   align-items: center;
   justify-content: flex-end;
   width: 30%;
 }
-
 
 .key-section {
   width: 328px !important;
@@ -92,10 +89,8 @@
   background: var(--primary-bg2);
 }
 
-
 .key-runs {
   display: flex;
-
 }
 
 .key-runs p {
@@ -104,18 +99,16 @@
   font-style: normal;
   font-weight: 400;
   line-height: 200%;
-
 }
 
 .high-runs {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
 .key-stats-high h3 {
-  color: var(--head-text-color, #FFFF);
+  color: var(--head-text-color, #ffff);
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -124,8 +117,7 @@
 }
 
 .key-stats-high p {
-
-  color: var(--grey-grey-02, #8B8B8B);
+  color: var(--grey-grey-02, #8b8b8b);
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -134,7 +126,7 @@
 }
 
 .key-stats-high h4 {
-  color: var(--yellow-main, #D7A700);
+  color: var(--yellow-main, #d7a700);
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -155,14 +147,19 @@
   /* justify-content: space-between; */
   /* width: 100%; */
 }
-
+.arrow-icon {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .left-arrow-position-1 img {
   margin-right: 16px;
   cursor: pointer;
 }
 
 .active-team {
-  background-color:var(--tab-color) !important;
+  background-color: var(--tab-color) !important;
 }
 
 .player-name-s {
@@ -196,7 +193,6 @@
   width: 100%;
   align-items: center;
 }
-
 
 .series-info-section {
   display: flex;
@@ -238,7 +234,7 @@
   cursor: pointer;
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
   .team-squads-container {
     flex-direction: column;
   }
@@ -249,9 +245,9 @@
     overflow-x: auto !important;
     white-space: nowrap !important;
   }
-.squads-flag{
-  padding: .5rem;
-}
+  .squads-flag {
+    padding: 0.5rem;
+  }
   .t-name p {
     font-size: 1rem;
   }
@@ -266,7 +262,6 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-
   }
 
   .format-series p {
@@ -282,51 +277,48 @@
   .icon-series-container {
     display: flex;
     justify-content: flex-end;
-
   }
 
   .right-arrow-position-1 img {
     display: none;
-
   }
 
   .left-arrow-position-1 img {
     display: none;
   }
-.more-series-container{
-  padding: .8rem;
-}
-.featured-match-container{
-/* align-items: flex-start; */
-gap: 0;
-width: 100%;
-
-}
-.fetured-main-container{
-  padding: 0.5rem;
-  justify-content: center;
-
-}
-  .series-info-section{
+  .more-series-container {
+    padding: 0.8rem;
+  }
+  .featured-match-container {
+    /* align-items: flex-start; */
+    gap: 0;
+    width: 100%;
+  }
+  .fetured-main-container {
+    padding: 0.5rem;
+    justify-content: center;
+  }
+  .series-info-section {
     padding: 0.5rem;
   }
 }
-@media (max-width:390px) {
-  .t-name p,h5 {
-    font-size: .8rem !important;
-}
-.format-series p {
-  font-size: 10px;
-}
-.format-series h4 {
-  padding: 0;
-  font-size: 10px;
-}
-.seasons-section {
-flex-direction: column;
-}
+@media (max-width: 390px) {
+  .t-name p,
+  h5 {
+    font-size: 0.8rem !important;
+  }
+  .format-series p {
+    font-size: 10px;
+  }
+  .format-series h4 {
+    padding: 0;
+    font-size: 10px;
+  }
+  .seasons-section {
+    flex-direction: column;
+  }
 
-.more-series-container{
-  width: 100%;
-}
+  .more-series-container {
+    width: 100%;
+  }
 }
