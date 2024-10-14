@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import usericon from '../assets/user-icon.png'
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 import editicon from '../assets/edit.png'
 import themeicon from '../assets/palete.png'
 import settingicon from '../assets/setting.png'
@@ -10,6 +10,7 @@ import downArrow from '../assets/downarrow.svg'
 import '../profile/profile.css'
 import { selectTranslations } from '../reduxx/languageSlice.js';
 import { useSelector } from 'react-redux';
+import { CiMail } from "react-icons/ci";
 
 
 const Profile = ({ setProfileOpen }) => {
@@ -30,10 +31,10 @@ const Profile = ({ setProfileOpen }) => {
   return (
 
     <motion.div className="profile-flex"
-     initial={{opacity:0}}
-      animate={{opacity:1}}
-      exit={{opacity:0}}
-      transition={{duration:2}}>
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 2 }}>
       <div className='profile-head'>
         <div className='prof-icon' onClick={() => setProfileOpen(false)}>
           {
@@ -50,6 +51,11 @@ const Profile = ({ setProfileOpen }) => {
         <div className={`icons-profile ${location.pathname.includes('themeProfile') ? 'active-side' : null}`} onClick={() => { navigate("/themeProfile"); setProfileOpen(false) }}>
           <img src={themeicon} alt='' />
           <h4>{translations['Theme']}</h4>
+        </div>
+        <div className={`icons-profile ${location.pathname.includes('mail') ? 'active-side' : null}`} onClick={() => { navigate("/mail"); setProfileOpen(false) }}>
+          <CiMail />
+
+          <h4>{translations['Email']}</h4>
         </div>
         <div className='icons-profile' >
           <img src={settingicon} alt='' />
