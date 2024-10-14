@@ -1,17 +1,18 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { formateTime } from '../../../reduxx/store';
 const MatchSeries = ({ matchDataByTou }) => {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-      const handleResize = () => {
-        setIsMobile(window.innerWidth <= 768); // Change 768 to your desired breakpoint
-      };
-      handleResize();
-      window.addEventListener('resize', handleResize);
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768); // Change 768 to your desired breakpoint
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
     return (
         <div className=''>
@@ -33,28 +34,28 @@ const MatchSeries = ({ matchDataByTou }) => {
                                 <div className='featured-match-container'>
                                     {
                                         el.status === 'completed' ?
-                                           <div className="">
-                                            {
-                                                isMobile? <div>
-                                                <>{
-                                                    el?.play?.result?.msg ? <>
-                                                        {
-                                                            el.play?.result?.winner === 'a' ?
-                                                                <p className='result-msg'>{el.team?.a?.code} win_by {el?.play?.result?.win_by} {el?.play?.result?.result_type} </p> :
-                                                                <p className='result-msg'>{el?.team?.b?.code} win_by {el?.play?.result?.win_by} {el?.play?.result?.result_type
-                                                                } </p>
+                                            <div className="">
+                                                {
+                                                    isMobile ? <div>
+                                                        <>{
+                                                            el?.play?.result?.msg ? <>
+                                                                {
+                                                                    el.play?.result?.winner === 'a' ?
+                                                                        <p className='result-msg'>{el.team?.a?.code} win_by {el?.play?.result?.win_by} {el?.play?.result?.result_type} </p> :
+                                                                        <p className='result-msg'>{el?.team?.b?.code} win_by {el?.play?.result?.win_by} {el?.play?.result?.result_type
+                                                                        } </p>
+                                                                }
+                                                            </> : null
                                                         }
-                                                    </>: null
+                                                        </>
+                                                    </div> : <p className='result-msg'>{el?.play?.result?.msg} </p>
                                                 }
-                                                </>
-                                            </div>: <p className='result-msg'>{el?.play?.result?.msg} </p>
-                                            }
-                                           </div> :
+                                            </div> :
                                             <div>
                                                 <p className='regular-para'>
-                                                    {(new Date(el.start_at * 1000).toLocaleString()).split(",")[0]}
+                                                    {(new Date(el?.start_at * 1000).toLocaleString('default', { month: 'short', day: "2-digit" }))}
                                                 </p>
-                                                <p style={{ textAlign: "center", color: "#F44464" }}>{(new Date(el?.start_at * 1000).toLocaleString()).split(",")[1]}</p>
+                                                <p style={{ textAlign: "center", color: "#F44464" }}>{formateTime(el.start_at * 1000)}</p>
                                             </div>
                                     }
                                 </div>

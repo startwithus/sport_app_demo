@@ -9,3 +9,12 @@ export default configureStore({
 
   },
 });
+
+export const formateTime = (dateString) => {
+  const parsedDate = new Date(dateString);
+  return parsedDate.toLocaleTimeString('en-US', {
+    hour: '2-digit',
+    minute: '2-digit',
+
+  });
+}
