@@ -28,6 +28,7 @@ import SeriesLeagues from './pages/tournament/SeriesLeagues';
 import Home from './layout/home/Home'
 import Fixtures from './pages/fixtures/Fixtures'
 import Mail from "./profile/mail/Mail";
+import StatsWeb from "./pages/statscorner/StatsWeb";
 function App() {
   let isAuthenticated = false;
   useEffect(() => {
@@ -69,6 +70,7 @@ function App() {
             <Route path="/profileMatchSetting" element={<ProtectedRoute Children={<ProfileMatchSetting />} />} />
             <Route path="/speechSetting" element={<ProtectedRoute Children={<SpeechSetting />} />} />
             <Route path="/mail" element={<ProtectedRoute Children={<Mail />} />} />
+            <Route path="/statsweb" element={<ProtectedRoute Children={<StatsWeb />} />} />
             <Route path="/notification" element={<ProtectedRoute Children={<Notification />} />} />
 
 

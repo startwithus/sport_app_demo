@@ -6,7 +6,6 @@ import Slider from "react-slick";
 import { getCaller } from '../../services/api'
 import rightArrow from '../../assets/rigthArrow.png'
 import leftArrow from '../../assets/leftArrow.png'
-import tournament from '../../assets/t.webp'
 import SeriesOverView from './seriesOverView/SeriesOverView';
 import MatchSeries from './matchesSeries/MatchSeries';
 import { TeamSquadSeries } from './TeamSquadsSeries/TeamSquadSeries';
@@ -18,8 +17,7 @@ import SeriesPointsTable from './seriesPointsTable/SeriesPointTable';
 import { selectTranslations } from '../../reduxx/languageSlice.js';
 import { useSelector } from 'react-redux';
 import { IoIosNotificationsOutline } from "react-icons/io";
-
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import StatsWeb from '../statscorner/StatsWeb';
 const SeriesLeagues = () => {
 
   const [seriesData, setSeriesData] = useState([])
@@ -101,6 +99,7 @@ const SeriesLeagues = () => {
     { label: `${translations['Matches']}`, content: <MatchSeries matchDataByTou={matchDataByTou} activeTab={activeTab} setActiveTab={setActiveTab} seriesTab={seriesTab} /> },
     { label: `${translations['Squads']}`, content: <TeamSquadSeries matchDataByTou={matchDataByTou} /> },
     { label: `${translations['PointTable']}`, content: <SeriesPointsTable matchDataByTou={matchDataByTou} /> },
+    { label: `${translations['Stats']}`, content: <StatsWeb matchDataByTou={matchDataByTou} /> },
     { label: `${translations['News']}`, content: <MatchUpdates matchDataByTou={matchDataByTou} /> },
     { label: `${translations['SeriesInfo']}`, content: <SeriesInfoSeries matchDataByTou={matchDataByTou} /> },
 
