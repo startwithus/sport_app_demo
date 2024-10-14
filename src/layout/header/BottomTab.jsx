@@ -33,7 +33,7 @@ const BottomTab = () => {
       <ul className='nav-links-mobile'>
         <ListItem
           icon={<IoHomeOutline />}
-          path="/"
+          path="/"  
           text="Home"
           onClick={handleClick}
           isSelected={selected === "Home"}
