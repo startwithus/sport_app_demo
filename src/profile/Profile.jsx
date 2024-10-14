@@ -53,7 +53,7 @@ const Profile = ({ setProfileOpen }) => {
           <h4>{translations['Theme']}</h4>
         </div>
         <div className={`icons-profile ${location.pathname.includes('mail') ? 'active-side' : null}`} onClick={() => { navigate("/mail"); setProfileOpen(false) }}>
-          <CiMail />
+          <CiMail style={{ fontWeight: "900", color: "#f44464" }} />
 
           <h4>{translations['Email']}</h4>
         </div>
