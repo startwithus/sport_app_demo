@@ -27,6 +27,7 @@ import HomeProfile from "./profile/HomeProfile";
 import SeriesLeagues from './pages/tournament/SeriesLeagues';
 import Home from './layout/home/Home'
 import Fixtures from './pages/fixtures/Fixtures'
+import Mail from "./profile/mail/Mail";
 function App() {
   let isAuthenticated = false;
   useEffect(() => {
@@ -38,7 +39,7 @@ function App() {
       <BrowserRouter>
         <ScrollToTop>
           <Routes>
-            <Route exact path="/" element={<Home/>} />
+            <Route exact path="/" element={<Home />} />
             <Route exact path="/series" element={<SeriesLeagues />} />
             <Route exact path="/series/:id" element={
               <SeriesLeagues />
@@ -46,7 +47,7 @@ function App() {
             />
             <Route exact path="/stats" element={<Stats />} />
             <Route exact path="/stats/:id" element={<Stats />} />
-            <Route exact path="/fixtures" element={<Fixtures />}/>
+            <Route exact path="/fixtures" element={<Fixtures />} />
             <Route exact path="/fixtures/days" element={<FixturesDays />} />
             <Route exact path="/about" element={<About />} />
             <Route exact path="/getMatchList" element={<MatchDetails />} />
@@ -67,7 +68,7 @@ function App() {
             <Route path="/themeProfile" element={<ProtectedRoute Children={<ThemeProfile />} />} />
             <Route path="/profileMatchSetting" element={<ProtectedRoute Children={<ProfileMatchSetting />} />} />
             <Route path="/speechSetting" element={<ProtectedRoute Children={<SpeechSetting />} />} />
-
+            <Route path="/mail" element={<ProtectedRoute Children={<Mail />} />} />
             <Route path="/notification" element={<ProtectedRoute Children={<Notification />} />} />
 
 
