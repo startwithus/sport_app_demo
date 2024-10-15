@@ -112,9 +112,10 @@ const MatchDetails = () => {
                 <div className="match-details-container">
                     <div className="match-details-content">
                         <div className="tou-name">
-                            <Link to={`/`}>
+                            <Link to={`/series`}>
                                 <img src={arrowRight} alt="" width={20} height={20} />
                             </Link>
+                            
                             <p>  {matchInfoData?.tou_name}</p>
                         </div>
                         {matchInfoData?.status === "started" ? <LiveMatchDetails matchInfoData={matchInfoData}

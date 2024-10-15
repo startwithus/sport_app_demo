@@ -157,7 +157,7 @@ const SeriesLeagues = () => {
                       <p>{matchDataByTou?.tournamentName}</p>
                       <h5>{(new Date(matchDataByTou?.startDate * 1000).toLocaleString()).split(',')[0]} - {(new Date(matchDataByTou?.lastScheduledMatchDate * 1000).toLocaleString()).split(',')[0]}</h5>
                     </div>
-                    <div className=''>
+                    <div className='' style={{ borderRadius: "8px", border: "1px solid white" }}>
                       <p className='noti-icon'><IoIosNotificationsOutline /></p>
                     </div>
                   </div>
