@@ -15,7 +15,7 @@ const FinishedMatchDetails = ({ matchInfoData }) => {
     }, []);
     return (
 
-        <div className="live-match-details">
+        <div className="live-match-details" style={{ paddingTop: "4rem" }}>
             {
                 matchInfoData.format === "test" ? <div className="match-socrecard">
                     <div className='match-score-body-test'>
@@ -88,13 +88,13 @@ const FinishedMatchDetails = ({ matchInfoData }) => {
                     <div className='match-score-body'>
                         <div className="mobile-flex-1">
                             <p className='para-name-match' >{matchInfoData?.team?.b?.code}</p>
-                               <div className="team-score-test">
-                                        <p className='over-name'>({matchInfoData?.play?.innings?.b_1?.overs[0] + '.' + matchInfoData?.play?.innings?.b_1?.overs[1]})</p>
+                            <div className="team-score-test">
+                                <p className='over-name'>({matchInfoData?.play?.innings?.b_1?.overs[0] + '.' + matchInfoData?.play?.innings?.b_1?.overs[1]})</p>
                                 <p className='score'>{matchInfoData?.play?.innings?.b_1?.score?.runs}/{matchInfoData?.play?.innings?.b_1?.wickets} </p>
-                            
+
                             </div>
-                            
-                        
+
+
                         </div>
 
                         <div className='team-logo' >

@@ -19,27 +19,27 @@ const SeriesInfoSeries = ({ matchDataByTou }) => {
         <p className='batting-career-name'>{translations['SeriesInfo']}</p>
       </div>
       <div className='series-info-section'>
-      <SkeletonTheme highlightColor='#C0C0C0'>
-        {
-          matchDataByTou === 0 ?
-            <div className="format-series">
-            <Skeleton circle={true} width={50} height={50}/>
-              <h1><Skeleton /></h1>
-              <h1><Skeleton /></h1>
-              <h1><Skeleton /></h1>
+        <SkeletonTheme highlightColor='#C0C0C0'>
+          {
+            matchDataByTou === 0 ?
+              <div className="format-series">
+                <Skeleton circle={true} width={50} height={50} />
+                <h1><Skeleton /></h1>
+                <h1><Skeleton /></h1>
+                <h1><Skeleton /></h1>
 
-            </div>
-          
-            :
+              </div>
 
-            <div className='format-series'>
-          <p>{translations['Series']}</p>
-          <p>{translations['Duration']}</p>
-          <p>{translations['Format']}</p>
-          {/* <p>Location</p> */}
-        </div>
+              :
 
-        }
+              <div className='format-series'>
+                <p>{translations['Series']}</p>
+                <p>{translations['Duration']}</p>
+                <p>{translations['Format']}</p>
+                {/* <p>Location</p> */}
+              </div>
+
+          }
         </SkeletonTheme>
         <div className='format-series'>
           <h4>{matchDataByTou?.tournamentName}</h4>
@@ -52,11 +52,11 @@ const SeriesInfoSeries = ({ matchDataByTou }) => {
           </div>
         </div>
 
-        
 
-       
+
+
       </div >
-      
+
     </div >
   )
 }

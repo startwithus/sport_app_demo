@@ -20,7 +20,7 @@ const Home = () => {
     },
   };
   return (
-  
+
     <Layout>
       <LiveMatchCard />
       <HomeNews />

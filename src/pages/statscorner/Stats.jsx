@@ -100,7 +100,7 @@ const Stats = () => {
 
     <Layout>
       <div className='section-stats'>
-        <div className='layout-container' style={{ paddingTop: "1rem" }}>
+        <div className='layout-container' style={{ paddingTop: "6rem" }}>
 
           <div className="container-series">
             {
