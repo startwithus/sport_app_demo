@@ -26,6 +26,12 @@
   padding: 2rem 0 2rem 0;
   text-align: center;
 }
+.back-arrow-icon p {
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  width: 30px;
+}
 
 .sign-in-content h2 {
   color: white;
