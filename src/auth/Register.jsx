@@ -9,6 +9,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
+import * as Yup from "yup";
+
 const Register = () => {
   const navigate = useNavigate();
   const [otpSent, setOtpSent] = useState(false);
@@ -39,36 +41,43 @@ const Register = () => {
     return () => clearInterval(interval);
   }, [otpSent, timer]);
 
-  const initialValues = {
-    phone: "",
-    password: "",
-    otp: "",
-  };
+  
+  const phoneRegExp =
+    /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+    const validationLogin = Yup.object().shape({
+      phone: Yup.string()
+        .required("Phone number is required")
+        .length(10, "Phone number must be exactly 10 digits"),
+      
+      password: Yup.string()
+        .required('Password is required')
+        .length(6, 'Password must be exactly 6 characters')
+        .matches(/^\S*$/, 'Password cannot contain spaces'),
+    
+      otp: Yup.string().required('OTP is required'),
+    });
+    
+  
 
-  // const validationSchema = Yup.object().shape({
-  //     mobileNumber: Yup.string()
-  //         .required('Mobile number is required')
-  //         .matches(/^\d{10}$/, 'Mobile number must be 10 digits'),
-  //     otp: Yup.string().when('mobileNumber', {
-  //         is: (mobileNumber) => mobileNumber && otpSent && showOtpInput,
-  //         then: Yup.string()
-  //             .required('OTP is required')
-  //             .matches(/^\d{6}$/, 'OTP must be 6 digits'),
-  //         otherwise: Yup.string(),
-  //     }),
-  // });
-
-  const onSubmit = async (values) => {
-    values.otp = otpValue;
-    values.otp_id = otpId;
-    const res = await postCaller("user/v1/register", values);
-    if (res?.status === "success") {
-      alert("Registration Successful");
-      navigate("/login");
-    } else {
-      alert(res.errMsg);
+  const formik = useFormik({
+    initialValues :{
+      phone: "",
+      password: "",
+      otp: "",
+    },
+    validationSchema:validationLogin,
+    onSubmit : async (values) => {
+      values.otp = otpValue;
+      values.otp_id = otpId;
+      const res = await postCaller("user/v1/register", values);
+      if (res?.status === "success") {
+        alert("Registration Successful");
+        navigate("/login");
+      } else {
+        alert(res.errMsg);
+      }
     }
-  };
+  });
   const handleToggle = () => {
     if (type === "password") {
       setIcon(
@@ -124,11 +133,6 @@ const Register = () => {
     }
   };
 
-  const formik = useFormik({
-    initialValues,
-    //   validationSchema,
-    onSubmit,
-  });
 
 
   return (
@@ -158,21 +162,17 @@ const Register = () => {
                     id="phone"
                     name="phone"
                     maxLength="10"
-                    onChange={(e) => {
-
-                      const value = e.target.value
-                        .replace(/[^0-9]/g, "")
-                        .slice(0, 10);
-                      formik.setFieldValue("phone", value);
-                    }}
+                   
                     onBlur={formik.handleBlur}
                     value={formik.values.phone}
+                    onChange={formik.handleChange}
                   />
                 </div>
-                {formik.touched.phone && formik.errors.phone && (
-                  <div className="error">{formik.errors.phone}</div>
-                )}
+
               </div>
+              {formik.touched.phone && formik.errors.phone && (
+  <div className="error">{formik.errors.phone}</div>
+)}
               <div className="otp-container">
                 {!otpSent && (
                   <button
@@ -235,8 +235,9 @@ const Register = () => {
               </div>
 
               {formik.touched.mobileNumber && formik.errors.mobileNumber && (
-                <div className="error">{formik.errors.mobileNumber}</div>
-              )}
+  <div className="error">{formik.errors.mobileNumber}</div>
+)}
+
 
               <div className="" style={{ marginTop: "0.3rem" }}>
                 <label style={{ color: "white" }}>
@@ -261,13 +262,14 @@ const Register = () => {
                     />
                   </div>
                   <span onClick={handleToggle}>{icon}</span>
-                  {formik.errors.password && formik.touched.password && (
+                
+                </div>
+              </div>
+              {formik.errors.password && formik.touched.password && (
                     <span className="error" style={{ color: "red" }}>
                       {formik.errors.password}
                     </span>
                   )}
-                </div>
-              </div>
               <div className="sign-in-btn">
                 <div className="">
                   <button type="submit" disabled={!(formik.isValid && formik.dirty)}>
