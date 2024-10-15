@@ -11,6 +11,7 @@ import home from '../../assets/home.svg'
 import fixture from '../../assets/calender.svg'
 import { IoIosStats } from 'react-icons/io'
 import { TbCloudDownload } from "react-icons/tb";
+import { IoDocumentTextOutline } from "react-icons/io5";
 
 const Header = () => {
   const navigate = useNavigate()
@@ -96,6 +97,26 @@ const Header = () => {
           isMobile ? <ul className='nav-links-mobile'>
 
             <li className='list-link'>
+              <NavLink to="/news/allNews" className={({ isActive, inActive }) => {
+                return isActive ? "active" : inActive ? "inactive" : "";
+              }}
+              >
+                <h2 style={{ fontWeight: "800", color: "white" }}><IoDocumentTextOutline /></h2>
+              </NavLink>
+              <NavLink to="/news/allNews" style={({ isActive, isPending }) => {
+                return {
+                  color: isActive ? "#F44464" : "white",
+                  backgroundColor: isActive ? "transparent" : "inherit",
+                  transition: ".4s all linear",
+                  display: isActive ? "block" : "none"
+                };
+              }}
+              >
+                News
+              </NavLink>
+            </li>
+
+            <li className='list-link'>
               <NavLink to="/series" className={({ isActive, inActive }) => {
                 return isActive ? "active" : inActive ? "inactive" : "";
               }}
@@ -115,7 +136,7 @@ const Header = () => {
                 Series
               </NavLink>
             </li>
-            <li className='list-link'>
+            {/* <li className='list-link'>
               <NavLink to="/stats" className={({ isActive, isPending }) => {
                 return isActive ? "active" : isPending ? "pending" : "";
               }}
@@ -134,7 +155,7 @@ const Header = () => {
               >
                 Stats
               </NavLink>
-            </li>
+            </li> */}
             <li className='list-link'>
               <NavLink to="/" className={({ isActive, isPending }) => {
                 return isActive ? "active" : isPending ? "pending" : "";
