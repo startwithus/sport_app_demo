@@ -6,7 +6,7 @@ const BattingPlayer = ({ squadsData }) => {
   const navigate = useNavigate()
   return (
     <div className="player-main-squads-container">
-      <p className='player-name-s' style={{ fontWeight: "400" }}>Bat({squadsData?.players?.bt?.length})</p>
+      <p className='player-name-s' style={{ fontWeight: "400" }}>Batsman({squadsData?.players?.bt?.length})</p>
       <div className="player-squads-container">
         {
           squadsData?.players?.bt?.length > 0 ? squadsData?.players?.bt?.map((item, i) => (
