@@ -78,6 +78,7 @@ const Header = () => {
           <li>
             <NavLink to="/about">{translations['About']}</NavLink>
           </li>
+          
           <li>
             <div className="desktop-view">
               <LanguageSelector />
