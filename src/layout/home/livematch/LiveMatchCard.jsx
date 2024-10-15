@@ -100,7 +100,7 @@ const LiveMatchCard = () => {
   return (
     <div className="slider-header">
       <div className='layout-container'>
-        <div className="head-wrapper" style={{ display: "flex" }}>
+        <div className="head-wrapper" style={{ display: "flex", paddingTop:"6rem" }}>
           <p>{translations['Matches']} {totalStartedMatches > 0 && <span>({totalStartedMatches})</span>} </p>
 
         </div>

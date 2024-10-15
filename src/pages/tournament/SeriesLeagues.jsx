@@ -110,7 +110,7 @@ const SeriesLeagues = () => {
 
     <Layout>
       <div className='main-wrapper-container' >
-        <div className='layout-container' style={{ paddingTop: "1rem" }}>
+        <div className='layout-container' style={{ paddingTop: "2rem" }}>
           {
             seriesData?.length > 0 ? <div className="icon-series-container">
               <div className="left-arrow-position-1" style={{ display: currentSlide === 0 ? 'none' : 'block', }} >

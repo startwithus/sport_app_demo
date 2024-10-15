@@ -101,7 +101,7 @@ const FixturesDays = (props) => {
   }
 
   return (
-    <div className='FixturesDays-container'>
+    <div className='FixturesDays-container' style={{paddingTop:"1rem"}}>
       <div className='flex' style={{ overflowX: 'auto' }}>
         <div className='Group-series'>
           {fixtureTab.map((item, index) => (

@@ -169,6 +169,7 @@ section {
 .main-wrapper-container {
   background: var(--secondary-bg-color);
   height: 100%;
+  padding-top: 5rem;
 }
 
 a {
