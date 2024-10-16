@@ -8,8 +8,10 @@ import { Link } from 'react-router-dom'
 import { selectTranslations } from '../../../reduxx/languageSlice';
 import { useSelector } from 'react-redux';
 import { formateTime } from '../../../reduxx/store'
+import SquadsModal from '../../../components/modal/SquadsModal'
+import { TeamSquadSeries } from '../TeamSquadsSeries/TeamSquadSeries'
 
-const SeriesOverView = ({ matchDataByTou, activeTab, setActiveTab }) => {
+const SeriesOverView = ({ matchDataByTou, activeTab, setActiveTab, TeamSquadSeries }) => {
   const translations = useSelector(selectTranslations)
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
@@ -18,7 +20,10 @@ const SeriesOverView = ({ matchDataByTou, activeTab, setActiveTab }) => {
   const getFeatureMatches = matchDataByTou?.teamsDetails?.matches?.slice(indexOfFirstItem, indexOfLastItem);
   const getSquads = matchDataByTou?.teamsDetails?.teams?.slice(indexOfFirstItem, indexOfLastItem);
   const [isMobile, setIsMobile] = useState(false);
-
+const handleNavaigate=()=>{
+  setActiveTab(1);
+  console.log(activeTab)
+}
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768); // Change 768 to your desired breakpoint
@@ -40,7 +45,7 @@ const SeriesOverView = ({ matchDataByTou, activeTab, setActiveTab }) => {
       {/* <SeriesInfoSeries matchDataByTou={matchDataByTou} /> */}
       <div className="head-wrapper flex">
         <p>{translations['Featured']}</p>
-        <Link to="#" onClick={() => setActiveTab(1)}>{translations['View']}</Link>
+        <Link to="#" onClick={handleNavaigate}>{translations['View']}</Link>
       </div>
       <div className='feature-section-match'>
 
@@ -104,15 +109,15 @@ const SeriesOverView = ({ matchDataByTou, activeTab, setActiveTab }) => {
 
       <MatchUpdates matchDataByTou={matchDataByTou} />
       <div className="head-wrapper flex">
-        <p className='batting-career-name'>{translations['TeamSquads']}</p> <Link to="#" onClick={() => setActiveTab(2)}>{translations['View']}</Link>
+        <p className='batting-career-name'>{translations['TeamSquads']}</p> <Link to="#" onClick={handleNavaigate}>{translations['View']}</Link>
       </div>
       <div className="team-squads-container">
         <div className='Team-squad-section'>
           {
             getSquads?.length > 0 ? getSquads?.map((el, index) => (
               <div className="section-squad-team" key={index}>
-                <div className='squads-flag' >
-                  <div className='team-logo'>
+                <div className='squads-flag' onClick={()=> ""}>
+                  <div className='team-logo' >
                     <img src={el?.url} alt='' />
                   </div>
                   <p>{el?.name}</p>

@@ -97,7 +97,7 @@ const SeriesLeagues = () => {
   const tabData = [
     { label: `${translations['Overview']}`, content: <SeriesOverView matchDataByTou={matchDataByTou} activeTab={activeTab} setActiveTab={setActiveTab} /> },
     { label: `${translations['Matches']}`, content: <MatchSeries matchDataByTou={matchDataByTou} activeTab={activeTab} setActiveTab={setActiveTab} seriesTab={seriesTab} /> },
-    { label: `${translations['Squads']}`, content: <TeamSquadSeries matchDataByTou={matchDataByTou} /> },
+    { label: `${translations['Squads']}`, content: <TeamSquadSeries matchDataByTou={matchDataByTou}  /> },
     { label: `${translations['PointTable']}`, content: <SeriesPointsTable matchDataByTou={matchDataByTou} /> },
     { label: `${translations['Stats']}`, content: <StatsWeb matchDataByTou={matchDataByTou} /> },
     { label: `${translations['News']}`, content: <MatchUpdates matchDataByTou={matchDataByTou} /> },
@@ -157,7 +157,7 @@ const SeriesLeagues = () => {
                       <p>{matchDataByTou?.tournamentName}</p>
                       <h5>{(new Date(matchDataByTou?.startDate * 1000).toLocaleString()).split(',')[0]} - {(new Date(matchDataByTou?.lastScheduledMatchDate * 1000).toLocaleString()).split(',')[0]}</h5>
                     </div>
-                    <div className='' style={{ borderRadius: "8px", border: "1px solid white" }}>
+                    <div className='' style={{ borderRadius: "8px", border: "1px solid white"}}>
                       <p className='noti-icon'><IoIosNotificationsOutline /></p>
                     </div>
                   </div>
