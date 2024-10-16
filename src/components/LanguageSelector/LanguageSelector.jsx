@@ -1,6 +1,7 @@
-import {useState} from 'react'
+import {useState, } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import './languages-converter.css';
+import React, { useState,  } from 'react';
 
 import { selectTranslations, setLanguage, selectLanguage } from '../../reduxx/languageSlice.js';
 const LanguageSelector = () => {
@@ -12,7 +13,16 @@ const [isOpen, setIsOpen] = useState(false)
   const handleChangeLanguage = (e) => {
     const language = e.target.value;
     dispatch(setLanguage(language));
+    localStorage.setItem('language', language); // Save language in local storage
   };
+  
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language');
+    if (savedLanguage) {
+      dispatch(setLanguage(savedLanguage)); // Set language from local storage on mount
+    }
+  }, [dispatch]);
+  
 
   return (
     <div className='languages-converter'>
