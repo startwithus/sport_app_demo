@@ -60,7 +60,7 @@ const VideoPlayer = ({ videoUrl, getReelsData }) => {
         setModalOpen(true)
         const res = await getCaller(`user/v1/get/comment?reel_id=${item?.reel_id}`)
         setCommentsData(res?.comments)
-    
+
     }
 
     const handleInputChange = (e) => {
@@ -76,11 +76,11 @@ const VideoPlayer = ({ videoUrl, getReelsData }) => {
                     const response = await getCaller(`user/v1/get/comment?reel_id=${item.reel_id}`)
                     setCommentsData(response.comments)
                 } catch (err) {
-               
+
                 }
             }
         } catch (err) {
-           
+
         }
 
     };
@@ -167,3 +167,4 @@ const VideoPlayer = ({ videoUrl, getReelsData }) => {
 };
 
 export default VideoPlayer;
+
