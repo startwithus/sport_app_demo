@@ -23,7 +23,10 @@ const Profile = ({ setProfileOpen }) => {
 
   const handleLogout = async () => {
     if (window.confirm('Are You Sure You Want To Logout?')) {
-      localStorage.clear();
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      localStorage.removeItem("userImage");
+      localStorage.removeItem("userName");
       navigate('/');
       window.location.reload()
     };
