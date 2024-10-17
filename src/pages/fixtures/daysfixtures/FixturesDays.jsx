@@ -13,6 +13,7 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { CiCalendarDate } from 'react-icons/ci';
 import Calendar from '../../../components/calender/Calender';
+import ReactModal from 'react-modal';
 
 
 const FixturesDays = (props) => {
@@ -60,8 +61,9 @@ const FixturesDays = (props) => {
     setLoading(false);
   };
 
+  // Function to toggle the calendar modal
   const toggleCalendar = () => {
-    setCalendarOpen(!calendarOpen);
+    setCalendarOpen(!calendarOpen); // Change from calenderToggle to calendarOpen
   };
 
   const closeModal = () => {
@@ -117,7 +119,7 @@ const FixturesDays = (props) => {
 
         <div className='' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', cursor: 'pointer' }}>
           <CiCalendarDate style={{ color: 'white', fontSize: '24px' }} onClick={toggleCalendar} />
-          <p style={{ color: 'pink' }}>calendar</p>
+          <p onClick={toggleCalendar}style={{ color: 'pink' }}>calendar</p>
         </div>
 
         <div className='prev-next-btn'>
@@ -128,22 +130,22 @@ const FixturesDays = (props) => {
             <FaChevronRight style={{ color: 'white' }} />
           </button>
         </div>
-
-        {/* <ReactModal
-          isOpen={calendarOpen}
-          onRequestClose={closeModal}
-          contentLabel='Calendar Modal'
-          className='calendar-modal'
-          overlayClassName='calendar-modal-overlay'
+    {/* Calendar Modal Implementation */}
+    <ReactModal
+        isOpen={calendarOpen} // Use calendarOpen state here
+        onRequestClose={closeModal}
+        contentLabel='Calendar Modal'
+        className='calendar-modal'
+        overlayClassName='calendar-modal-overlay'
+      >
+        <button
+          onClick={closeModal}
+          style={{ float: 'right', background: 'none', border: 'none', fontSize: '1.5rem' }}
         >
-          <button
-            onClick={closeModal}
-            style={{ float: 'right', background: 'none', border: 'none', fontSize: '1.5rem' }}
-          >
-            ×
-          </button>
-          <Calendar />
-        </ReactModal> */}
+          ×
+        </button>
+        <Calendar />
+      </ReactModal>
       </div>
 
       {calenderToggle && <CalenderModal setCalenderToggle={setCalenderToggle} calenderToggle={calenderToggle} />}

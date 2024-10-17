@@ -42,7 +42,7 @@
 }
 .active-tab {
   position: relative;
-  z-index: 2;
+  /* z-index: 2; */
   color: var(--head-text-color);
 
   border-bottom: 1px solid var(--tab-color);
