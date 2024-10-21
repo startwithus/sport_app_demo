@@ -39,7 +39,7 @@ const MatchInfo = ({ matchInfoData }) => {
                     </div>
                 </div>
                 <div className="arrow-container">
-                    <img src={arrowDown} alt="" />
+                    {/* <img src={arrowDown} alt="" /> */}
                 </div>
             </div>
             <div className="team-form-container">
@@ -66,7 +66,7 @@ const MatchInfo = ({ matchInfoData }) => {
                     </div>
                 </div>
                 <div className="arrow-container">
-                    <img src={arrowDown} alt="" />
+                    {/* <img src={arrowDown} alt="" /> */}
                 </div>
             </div>
             <WeatherCondition matchInfoData={matchInfoData} />

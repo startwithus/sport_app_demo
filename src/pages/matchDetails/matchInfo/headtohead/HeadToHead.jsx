@@ -7,6 +7,9 @@ import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import LastTenMatches from './LastTenMatches';
 import teamImage from '../../../../assets/t.webp'
+import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
+
 const HeadToHead = ({ matchInfoData }) => {
     const translations = useSelector(selectTranslations)
 
@@ -22,9 +25,9 @@ const HeadToHead = ({ matchInfoData }) => {
                 <div className='head-back'>
                     <div className="head-team-container">
                         <div className='team-logo'>
-                        {matchInfoData?.team?.a?.url ? <img src={matchInfoData?.team?.a?.url} alt="" /> : <img src={teamImage} alt="" />}
-                          
-                            <p style={{ color: "white",marginLeft:"1rem" }}>{matchInfoData?.team?.a?.code ?? ""}</p>
+                            {matchInfoData?.team?.a?.url ? <img src={matchInfoData?.team?.a?.url} alt="" /> : <img src={teamImage} alt="" />}
+
+                            <p style={{ color: "white", marginLeft: "1rem" }}>{matchInfoData?.team?.a?.code ?? ""}</p>
                         </div>
                         <div className='aus-num'>
                             <p>3</p>
@@ -32,7 +35,7 @@ const HeadToHead = ({ matchInfoData }) => {
                             <p>7</p>
                         </div>
                         <div className='team-logo'>
-                            <p style={{ color: "white",marginRight:"1rem" }}>{matchInfoData?.team?.b?.code ?? ""}</p>
+                            <p style={{ color: "white", marginRight: "1rem" }}>{matchInfoData?.team?.b?.code ?? ""}</p>
                             {matchInfoData?.team?.b?.url ? <img src={matchInfoData?.team?.b?.url} alt="" /> : <img src={teamImage} alt="" />}
                         </div>
                     </div>
@@ -43,7 +46,7 @@ const HeadToHead = ({ matchInfoData }) => {
             <div className='lastmatches'>
                 <p>{translations['ShowLastMatches']} </p>
                 <div className="" onClick={() => setopentoggle(!opentoggle)}>
-                    <img src={arrowDown} alt="" style={{ cursor: "pointer" }} />
+                    <p style={{ fontSize: "16px", marginTop: "4px", cursor: "pointer" }}>{opentoggle ? <IoIosArrowUp /> : <IoIosArrowDown />}</p>
                 </div>
 
 
@@ -52,7 +55,7 @@ const HeadToHead = ({ matchInfoData }) => {
                 opentoggle && (<LastTenMatches matchInfoData={matchInfoData} />)
             }
 
-            
+
         </div>
     )
 }
