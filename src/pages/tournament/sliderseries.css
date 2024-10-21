@@ -73,3 +73,16 @@
     max-width: 230px !important;
   }
 }
+
+.notification-popup {
+  position: absolute;
+  top: 150px;
+  right: 310px;
+  background: #323232 ;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  z-index: 1000; /* Make sure it appears on top */
+  width: 50%;
+  height: 70%;
+}
