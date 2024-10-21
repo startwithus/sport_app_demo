@@ -13,7 +13,6 @@ const LastTenMatches = ({ matchInfoData }) => {
 
             <div className='section-comparison'>
                 <div className='sec-team'>
-
                     <div className='aus-para-2'>
                         <div className='team-logo'>
                             <img src={matchInfoData?.team?.a?.url} alt="" />
@@ -32,11 +31,11 @@ const LastTenMatches = ({ matchInfoData }) => {
 
                 <div className='v-teams'>
                     <div className='para-team'>
-                        <p>V all Teams</p>
+                        <p>{matchInfoData?.team?.a?.name ?? ""}</p>
                     </div>
 
                     <div className='para-team'>
-                        <p>V all Teams</p>
+                        <p>{matchInfoData?.team?.b?.name ?? ""}</p>
                     </div>
 
                 </div>
