@@ -112,10 +112,10 @@ const Register = () => {
 
   const handleResendOtp = async () => {
     const res = await postCaller(`user/v1/send/otp?phone=${formik.values.phone}`);
-    if (res.status === 'success') {
+    if (res.status === true) {
       setOtpSent(true);
       setTimer(60);
-      alert('OTP resent successfully!');
+      alert(`OTP Resent successfully! This is OTP: ${res.OTP}`);
       setOptValue(res.OTP);
       setOtpId(res.otp_id);
     }
@@ -173,7 +173,7 @@ const Register = () => {
               {formik.touched.phone && formik.errors.phone && (
                 <div className="error">{formik.errors.phone}</div>
               )}
-              
+
               <div className="otp-container">
                 {!otpSent && (
                   <button
@@ -213,7 +213,7 @@ const Register = () => {
                   </div>
                 )}
               </div>
-            
+
 
               <div className="" style={{ marginTop: "0.3rem" }}>
                 <label style={{ color: "white" }}>

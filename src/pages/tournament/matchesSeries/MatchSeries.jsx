@@ -28,7 +28,7 @@ const MatchSeries = ({ matchDataByTou }) => {
                                     <div className='team-logo' >
                                         <img src={el?.team?.a?.url} alt='' />
                                     </div>
-                                    <p className='regular-para' style={{ fontWeight: "400" }}>{isMobile ? el?.team?.b?.code : el?.team?.b?.name}</p>
+                                    <p className='regular-para' style={{ fontWeight: "400" }}>{isMobile ? el?.team?.a?.code : el?.team?.a?.name}</p>
                                 </div>
 
                                 <div className='featured-match-container'>
@@ -48,7 +48,13 @@ const MatchSeries = ({ matchDataByTou }) => {
                                                             </> : null
                                                         }
                                                         </>
-                                                    </div> : <p className='result-msg'>{el?.play?.result?.msg} </p>
+                                                    </div> :
+                                                        <div className=''>
+                                                            <p className='result-msg'>{el?.play?.result?.msg} </p>
+                                                            <h5 style={{ textAlign: "center" }}>{(new Date(el?.start_at * 1000).toLocaleString()).split(',')[0]}</h5>
+
+                                                        </div>
+
                                                 }
                                             </div> :
                                             <div>
