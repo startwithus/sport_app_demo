@@ -32,7 +32,7 @@ export const TeamSquadSeries = ({ matchDataByTou }) => {
               <div className={`section-squad-team ${activeIndex === el?.code ? "active-team" : ""}`} key={index} onClick={() => handleModal(el, index)}>
                 <div className='squads-flag' >
                   <div className='arrow-icon'>
-                    <div className='team-logo' style={{ gap: "15px" }}>
+                    <div className='team-logo-squads' style={{ gap: "15px" }}>
                       <img src={el?.url} alt='' />
                       <p>{el?.name}</p>
                     </div>

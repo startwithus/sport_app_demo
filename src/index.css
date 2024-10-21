@@ -127,6 +127,17 @@ section {
   display: flex;
   align-items: center;
 }
+.team-logo-squads {
+  /* width: 36px; */
+  height: 36px;
+  display: flex;
+  align-items: center;
+}
+.team-logo-squads img {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+}
 
 .team-logo img {
   width: 2.25rem;
