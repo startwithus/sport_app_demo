@@ -20,10 +20,10 @@ const SeriesOverView = ({ matchDataByTou, activeTab, setActiveTab, TeamSquadSeri
   const getFeatureMatches = matchDataByTou?.teamsDetails?.matches?.slice(indexOfFirstItem, indexOfLastItem);
   const getSquads = matchDataByTou?.teamsDetails?.teams?.slice(indexOfFirstItem, indexOfLastItem);
   const [isMobile, setIsMobile] = useState(false);
-const handleNavaigate=()=>{
-  setActiveTab(1);
-  console.log(activeTab)
-}
+  const handleNavaigate = () => {
+    setActiveTab(1);
+    console.log(activeTab)
+  }
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768); // Change 768 to your desired breakpoint
@@ -116,7 +116,7 @@ const handleNavaigate=()=>{
           {
             getSquads?.length > 0 ? getSquads?.map((el, index) => (
               <div className="section-squad-team" key={index}>
-                <div className='squads-flag' onClick={()=> ""}>
+                <div className='squads-flag' onClick={() => ""}>
                   <div className='team-logo' >
                     <img src={el?.url} alt='' />
                   </div>
