@@ -15,6 +15,7 @@ const AllNews = () => {
     const pageLimit = 4;
     const [loading, setLoading] = useState(true);
     const [allNewsData, setAllNewsData] = useState([])
+
     const getAllNewsData = async () => {
         // setLoading(true)
         const offset = (currentPage - 1) * pageLimit;
@@ -26,6 +27,7 @@ const AllNews = () => {
     useEffect(() => {
         getAllNewsData()
     }, [currentPage])
+    
     const handleLoadMore = () => {
         setCurrentPage(prevPage => prevPage + 1);
     };
