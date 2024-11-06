@@ -42,7 +42,7 @@ const LiveCard = ({ el, currentTheme }) => {
               <div className="team-logo">
                 <img src={el?.team?.a?.url} alt="" />
               </div>
-              <p className='para-name'>{isMobile ? el?.team?.a?.code ?? "" : el?.team?.a?.name?.substring(0, 16) + "..." ?? ""}</p>
+              <p className='para-name'>{isMobile ? el?.team?.a?.code ?? "" : el?.team?.a?.name?.substring(0, 16) + "" ?? ""}</p>
             </div>
             {el.format === "test" ? <div className="score-card-container" style={{color:"white"}}>
               {el?.play?.innings?.a_1?.score?.runs && (
@@ -79,7 +79,7 @@ const LiveCard = ({ el, currentTheme }) => {
               <div className="team-logo">
                 <img src={el?.team?.b?.url} alt="" />
               </div>
-              <p className='para-name'>{el?.team?.b?.name?.substring(0, 16) + "..." ?? "" ?? ""}</p>
+              <p className='para-name'>{el?.team?.b?.name?.substring(0, 16) + "" ?? "" ?? ""}</p>
             </div>
             {el.format === "test" ? <div className="score-card-container">
               {el?.play?.innings?.b_1?.score?.runs && (
