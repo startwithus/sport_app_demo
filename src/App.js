@@ -29,6 +29,9 @@ import Home from './layout/home/Home'
 import Fixtures from './pages/fixtures/Fixtures'
 import Mail from "./profile/mail/Mail";
 import StatsWeb from "./pages/statscorner/StatsWeb";
+import AllTeamMatch from "./pages/fixtures/mymatchesfixtures/AllTeamMatches";
+import PrivacyPolicy from "./profile/themeprofile/PrivacyPolicy";
+import TermCondition from "./profile/themeprofile/TermCondition";
 function App() {
   let isAuthenticated = false;
   useEffect(() => {
@@ -62,6 +65,7 @@ function App() {
             <Route exact path="/news/allNews" element={<AllNews />} />
             <Route path="/matchTopFantasy" element={<MatchTopFantasy />} />
             <Route path="/accordianFantasy" element={<AccordianFantasy />} />
+            <Route path="/allTeamMatch/:match_key" element={<AllTeamMatch />} />
             <Route path="/reelsDetails" element={<ReelsDetails />} />
             <Route exact path='/login' element={isAuthenticated ? <Navigate to='/editProfile' /> : <Login />} />
             <Route path="/profile" element={<ProtectedRoute Children={<HomeProfile />} />} />
@@ -73,8 +77,8 @@ function App() {
             <Route path="/statsweb" element={<ProtectedRoute Children={<StatsWeb />} />} />
             <Route path="/notification" element={<ProtectedRoute Children={<Notification />} />} />
 
-
-
+            <Route path="/privacy" element={<ProtectedRoute Children={<PrivacyPolicy />} />} />
+            <Route path="/termcondition" element={<ProtectedRoute Children={<TermCondition />} />} />
 
           </Routes>
 

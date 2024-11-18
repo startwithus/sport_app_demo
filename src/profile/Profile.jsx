@@ -81,13 +81,19 @@ const Profile = ({ setProfileOpen }) => {
           )
         }
       </div>
+
       <div className='profile-foot'>
         <p>{translations['AboutUs']}</p>
-        <p>{translations['PrivacyPolicy']}</p>
-        <p>{translations['TermsAndCondition']}</p>
+        <div className={`icons-profile ${location.pathname.includes('privacy') ? 'active-side' : null}`} onClick={() => { navigate("/privacy"); setProfileOpen(false) }}>
+          <h4>Privacy Policy</h4>
+        </div>
+        <div className={`icons-profile ${location.pathname.includes('term') ? 'active-side' : null}`} onClick={() => { navigate("/termcondition"); setProfileOpen(false) }}>
+          <h4>Teams And condition</h4>
+        </div>
         <p>{translations['RateUs']}</p>
         <p>{translations['ReportAProblem']}</p>
       </div>
+
     </motion.div>
   )
 }

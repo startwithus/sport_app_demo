@@ -8,7 +8,7 @@ export const TeamSquadSeries = ({ matchDataByTou }) => {
   const [activeIndex, setActiveIndex] = useState()
   const [squadsData, setSquadsData] = useState({})
   const handleModal = async (item, index) => {
-    setActiveIndex(item.code)
+    setActiveIndex(item?.code)
     setSquadsData(item)
   }
 

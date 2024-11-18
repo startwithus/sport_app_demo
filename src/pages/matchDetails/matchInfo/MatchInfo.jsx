@@ -16,19 +16,22 @@ const MatchInfo = ({ matchInfoData }) => {
 
     const getFiveMatches = async () => {
         const res = await getCaller(`user/v1/get/five/match?short_name=${matchInfoData.short_name}`)
-        setLastFiveMatches(res.data)
+        setLastFiveMatches(res?.data)
     }
 
     useEffect(() => {
-        getFiveMatches()
-    }, [matchInfoData])
+        if (matchInfoData?.match_key) {
+            getFiveMatches();
+        }
+    }, [matchInfoData?.match_key]);
 
     return (
         <div className="match-info">
+
             <div className="head-wrapper flex">
                 <p className='batting-career-name'>
-                    {translations['TeamForm']} 
-                    <span className="fill-player"></span> 
+                    {translations['TeamForm']}
+                    <span className="fill-player"></span>
                     <span className='batting-style'>{translations['LastMatches']}</span>
                 </p>
             </div>
@@ -38,8 +41,8 @@ const MatchInfo = ({ matchInfoData }) => {
                 <div className="team-main-form">
                     <div className='team-form-content'>
                         <div className='team-logo'>
-                            {matchInfoData?.team?.a?.url ? 
-                                <img src={matchInfoData?.team?.a?.url} alt="" /> : 
+                            {matchInfoData?.team?.a?.url ?
+                                <img src={matchInfoData?.team?.a?.url} alt="" /> :
                                 <img src={teamImage} alt="" />
                             }
                         </div>
@@ -60,8 +63,8 @@ const MatchInfo = ({ matchInfoData }) => {
                 <div className="team-main-form">
                     <div className='team-form-content'>
                         <div className='team-logo'>
-                            {matchInfoData?.team?.b?.url ? 
-                                <img src={matchInfoData?.team?.b?.url} alt="" /> : 
+                            {matchInfoData?.team?.b?.url ?
+                                <img src={matchInfoData?.team?.b?.url} alt="" /> :
                                 <img src={teamImage} alt="" />
                             }
                         </div>

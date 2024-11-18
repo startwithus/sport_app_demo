@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import "../matchLive/matchlive.css"
 import { MdSportsCricket } from "react-icons/md"
 import WinPrediction from './WinPrediction'
-import playerImg from '../../../assets/playerimg.jpg'
-const MatchLive = ({ matchInfoData, liveScore }) => {
+import playerImg from '../../../assets/undraw_Male_avatar_g98d.png'
+const MatchLive = ({ matchInfoData, liveScore, styles }) => {
   return (
     <div className='match-live-container' >
       {
@@ -15,16 +15,25 @@ const MatchLive = ({ matchInfoData, liveScore }) => {
         </div> : <div>
           {
             matchInfoData?.status === "completed" ? <div className=''>
-              <div className="head-wrapper">
-                <p>Player Of The Match</p>
-                 <div className="man-of-match">
-                 <div className="man-of-img">
-                 <img src={playerImg} alt="" />
-                 </div>
-                 <div className="">
-<p style={{ fontSize: "1rem", color: "white" }}>{matchInfoData?.play?.result?.pom[0]}</p>
-</div>
-                 </div>
+              <div className="head-wrapper-player">
+                <p style={{ textAlign: "left", fontSize: "18px" }}>Player Of The Match</p>
+                {matchInfoData?.play?.result?.pom?.map((player, index) => (
+                  <div key={index} style={{marginTop:"1rem"}}>
+                    <div>
+                      <h3>
+                      {player.player_name.toUpperCase()}
+                       {/* {player.scero.runs} ({player.scero.balls}) */}
+                      </h3>                    
+                      <p>
+                        {player.nationality.name}
+                      </p>
+                    </div>
+                    <img
+                      src={player.image || playerImg}
+                      alt="Player"
+                    />
+                  </div>
+                ))}
               </div>
 
             </div> :
@@ -89,7 +98,7 @@ const MatchLive = ({ matchInfoData, liveScore }) => {
                       </table>
                       <div className="batter-ship flex">
                         {/* <p className='batter-para'>P'ship: 23(12)</p>
-        <p className='batter-para'>Last Wicket: R S Singh 34(19)</p> */}
+               <p className='batter-para'>Last Wicket: R S Singh 34(19)</p> */}
                       </div>
                     </div>
 
@@ -99,53 +108,53 @@ const MatchLive = ({ matchInfoData, liveScore }) => {
                       {/* <Link to="#">View All</Link> */}
                     </div>
 
-      <table className='score-table score-table-1 score-table-3'>
-        <thead>
-          <tr className='batter-width'>
-            <th>Bowler</th>
-            <th>W</th>
-            <th>O</th>
-            <th>R</th>
-            <th>E</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-          <td>
-          <Link style={{color:"white",display:"flex",alignItems:"center",gap:".5rem"}} to={`/getMatchList/playerInformation/${matchInfoData?.match_id}`} state={{
-                  matchData:matchInfoData,
-                  playerKey:liveScore?.live?.recent_players?.bowler?.key
-                }}>
-                 {liveScore?.live?.recent_players?.bowler?.name}{liveScore?.live?.recent_players?.bowler?"*":null}
-                </Link>
-            
-            </td>
-            <td>
-              {liveScore?.live?.recent_players?.bowler?.stats?.wickets}
-            </td>
-            <td> {liveScore?.live?.recent_players?.bowler?.stats?.overs[0]}.{liveScore?.live?.recent_players?.bowler?.stats?.overs[1]}</td>
-            <td>{liveScore?.live?.recent_players?.bowler?.stats?.runs}</td>
-            <td>{liveScore?.live?.recent_players?.bowler?.stats?.economy}</td>
-          </tr>
-          <tr>
-          <td >
-          <Link style={{color:"white",display:"flex",alignItems:"center",gap:".5rem"}} to={`/getMatchList/playerInformation/${matchInfoData?.match_id}`} state={{
-                  matchData:matchInfoData,
-                  playerKey:liveScore?.live?.recent_players?.prev_over_bowler?.key
-                }}>
-                      {liveScore?.live?.recent_players?.prev_over_bowler?.name}
-                  </Link>
-        
-          </td>
-            <td>
-              {liveScore?.live?.recent_players?.prev_over_bowler?.stats?.wickets}
-            </td>
-            <td> {liveScore?.live?.recent_players?.prev_over_bowler?.stats?.overs[0]}.{liveScore?.live?.recent_players?.prev_over_bowler?.stats?.overs[1]}</td>
-            <td>{liveScore?.live?.recent_players?.prev_over_bowler?.stats?.runs}</td>
-            <td>{liveScore?.live?.recent_players?.prev_over_bowler?.stats?.economy}</td>
-          </tr>
-        </tbody>
-      </table>
+                    <table className='score-table score-table-1 score-table-3'>
+                      <thead>
+                        <tr className='batter-width'>
+                          <th>Bowler</th>
+                          <th>W</th>
+                          <th>O</th>
+                          <th>R</th>
+                          <th>E</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <Link style={{ color: "white", display: "flex", alignItems: "center", gap: ".5rem" }} to={`/getMatchList/playerInformation/${matchInfoData?.match_id}`} state={{
+                              matchData: matchInfoData,
+                              playerKey: liveScore?.live?.recent_players?.bowler?.key
+                            }}>
+                              {liveScore?.live?.recent_players?.bowler?.name}{liveScore?.live?.recent_players?.bowler ? "*" : null}
+                            </Link>
+
+                          </td>
+                          <td>
+                            {liveScore?.live?.recent_players?.bowler?.stats?.wickets}
+                          </td>
+                          <td> {liveScore?.live?.recent_players?.bowler?.stats?.overs[0]}.{liveScore?.live?.recent_players?.bowler?.stats?.overs[1]}</td>
+                          <td>{liveScore?.live?.recent_players?.bowler?.stats?.runs}</td>
+                          <td>{liveScore?.live?.recent_players?.bowler?.stats?.economy}</td>
+                        </tr>
+                        <tr>
+                          <td >
+                            <Link style={{ color: "white", display: "flex", alignItems: "center", gap: ".5rem" }} to={`/getMatchList/playerInformation/${matchInfoData?.match_id}`} state={{
+                              matchData: matchInfoData,
+                              playerKey: liveScore?.live?.recent_players?.prev_over_bowler?.key
+                            }}>
+                              {liveScore?.live?.recent_players?.prev_over_bowler?.name}
+                            </Link>
+
+                          </td>
+                          <td>
+                            {liveScore?.live?.recent_players?.prev_over_bowler?.stats?.wickets}
+                          </td>
+                          <td> {liveScore?.live?.recent_players?.prev_over_bowler?.stats?.overs[0]}.{liveScore?.live?.recent_players?.prev_over_bowler?.stats?.overs[1]}</td>
+                          <td>{liveScore?.live?.recent_players?.prev_over_bowler?.stats?.runs}</td>
+                          <td>{liveScore?.live?.recent_players?.prev_over_bowler?.stats?.economy}</td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div> : <div className="match-info">
                     <div className="head-wrapper flex">
                       <p className='batting-career-name'>Batter</p>
@@ -261,8 +270,8 @@ const MatchLive = ({ matchInfoData, liveScore }) => {
                       </tbody>
                     </table>
                   </div>
-                  }
-                   <WinPrediction matchInfoData={matchInfoData}/>
+                }
+                <WinPrediction matchInfoData={matchInfoData} />
               </>
           }
         </div>

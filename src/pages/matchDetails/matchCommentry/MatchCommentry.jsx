@@ -5,11 +5,14 @@ import { IoVolumeHigh } from "react-icons/io5";
 import { IoMdVolumeOff } from "react-icons/io";
 import { useSpeechSynthesis } from 'react-speech-kit';
 import LiveCommentry from './LiveCommentry';
+import DummyImg from '../../../assets/undraw_Male_avatar_g98d.png'
+import OverStatsComponent from './OverStatsComponent';
 const MatchCommentry = ({ matchInfoData, liveCommentary, match_key }) => {
-  
+
   const [commentaryData, setCommentaryData] = useState([])
   const [loading, setLoading] = useState(true)
   const [overStats, setOverStats] = useState({})
+
   const getCommentaryData = async () => {
     setLoading(true)
     const res = await getCaller(`user/v1/get/commentory/?match_key=${match_key}`)
@@ -35,7 +38,7 @@ const MatchCommentry = ({ matchInfoData, liveCommentary, match_key }) => {
 
   const handlePlayStop = () => {
     if (isPlaying) {
-      cancel(); 
+      cancel();
       setIsPlaying(false);
     } else {
       const currentComment = sortedData[currentCommentIndex];
@@ -58,7 +61,7 @@ const MatchCommentry = ({ matchInfoData, liveCommentary, match_key }) => {
     }
   };
 
- 
+
   return (
     <>
       {
@@ -107,7 +110,7 @@ const MatchCommentry = ({ matchInfoData, liveCommentary, match_key }) => {
                               </div>
 
                               <div className='img-comm'>
-                                <img src={""} alt='playerImage' className='newImg' />
+                                <img src={""} alt='playerImage' className='newImg'  />
                               </div>
                             </div>
                           </div>
@@ -148,7 +151,7 @@ const MatchCommentry = ({ matchInfoData, liveCommentary, match_key }) => {
                               </div>
 
                               <div className='img-comm'>
-                                <img src={""} alt='playerImage' className='newImg' />
+                                <img src={DummyImg} alt='playerImage' className='newImg' />
                               </div>
                             </div>
                           </div>

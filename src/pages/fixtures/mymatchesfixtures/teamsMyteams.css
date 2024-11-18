@@ -1,0 +1,193 @@
+.container {
+  padding: 20px;
+  background-color: #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Search Container */
+.search-container {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+  background-color: #f9f9f9;
+  color: white;
+}
+
+.search-input:focus {
+  border-color: #f44464;
+}
+
+/* Loader */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Team List */
+.team-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  height: 50%;
+  margin-top: 1rem;
+  /* background-color: #f44464; */
+}
+
+.profile-list {
+  display: flex;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.profile-list:hover {
+  transform: scale(1.05);
+}
+
+.team-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+background-color: rgb(62, 59, 59);
+border: 1px solid gray;
+padding: 8px;
+border-radius: 8px;
+}
+
+.team-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.team-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.team-name:hover {
+  color: #f44464;
+}
+
+/* No Teams Found */
+.no-teams-text {
+  text-align: center;
+  font-size: 18px;
+  color: #888;
+  margin-top: 20px;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222222;
+  padding: 20px;
+  margin-top: 5rem;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+}
+
+.backButton {
+  margin-right: 10px;
+  color: white;
+}
+
+.headerTitle {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Match Cards */
+.matchCard {
+  background-color: #323232;
+  margin-bottom: 16px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.matchCard:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+.matchCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.teamLogo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.matchName {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.matchShortName {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.matchDescription {
+  font-size: 12px;
+  text-align: center;
+  background-color: green;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.matchList {
+  padding-bottom: 20px;
+}
+
+/* Error and Loader */
+.loader {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #f44464;
+}
+
+.errorText {
+  text-align: center;
+  font-size: 16px;
+  color: red;
+  margin-top: 20px;
+}

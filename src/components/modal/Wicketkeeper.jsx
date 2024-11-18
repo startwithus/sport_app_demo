@@ -11,7 +11,7 @@ const WicketKeeper = ({ squadsData }) => {
               <img src={item?.image} alt="playerimage" />
               <div className="">
                 <p className='player-name-s'>{item?.name}</p>
-                <p className='player-role'>{item?.role[0]}</p>
+                <p className='player-role'>{item?.roles[0]}</p>
               </div>
             </div>
           )) : null

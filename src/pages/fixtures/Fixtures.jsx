@@ -18,7 +18,9 @@ const Fixtures = (props) => {
   const tabData = [
     { label: `${translations['Days']}`, content: <FixturesDays oneMatchData={oneFixturesData} /> },
     { label: `${translations['Series']}`, content: <FixturesSeries oneMatchData={oneFixturesData} /> },
-    { label: `${translations['MyMatches']}`, content: <FixturesMyMatches oneMatchData={oneFixturesData} /> },
+    // { label: `${translations['MyMatches']}`, content: <FixturesMyMatches oneMatchData={oneFixturesData} /> },
+    { label: `Teams`, content: <FixturesMyMatches oneMatchData={oneFixturesData} /> },
+
   ];
   const routeVariants = {
     initial: {

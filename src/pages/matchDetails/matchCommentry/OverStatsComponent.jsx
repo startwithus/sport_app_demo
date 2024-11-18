@@ -2,6 +2,7 @@ import React from 'react'
 import '../matchCommentry/overStats.css'
 
 const OverStatsComponent = () => {
+  
   return (
     <div className="over-section">
       <div className='over-containert'>
