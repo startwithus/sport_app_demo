@@ -1,11 +1,24 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../player.css'
-const PlayerOverview = ({ playerDetailsData }) => {
+const PlayerOverview = ({ playerDetailsData, performance }) => {
     const playerDetailsData1 = ['1', '2', '3', '4']
     const [statsIndex, setStatsIndex] = useState(0)
     const activeStats = playerDetailsData?.stats?.[statsIndex]
 
+    const formatDate = (dateString) => {
+        if (!dateString) return '';
+
+        const date = new Date(dateString);
+        const day = date.getDate();
+        const month = date.toLocaleString('default', { month: 'long' });
+        const suffix =
+            day % 10 === 1 && day !== 11 ? 'st' :
+                day % 10 === 2 && day !== 12 ? 'nd' :
+                    day % 10 === 3 && day !== 13 ? 'rd' : 'th';
+
+        return `${day}${suffix} ${month}`;
+    };
     const mathesStats = [
         {
             title: "Matches",
@@ -133,15 +146,24 @@ const PlayerOverview = ({ playerDetailsData }) => {
                 <p>Recent Form</p>
                 {/* <Link to="#">View All</Link> */}
             </div>
-            <div className="recent-card-container">
-                {
-                    playerDetailsData1.map((el, i) => (
-                        <div className="recent-card-body" key={i}>
-                            <p> <span className='score-name'>67</span>(90) | <span>vs WI, T20I, On 3rd July</span> </p>
-                        </div>
-                    ))
-                }
-            </div>
+            {/* <div className="recent-card-container">
+                {performance?.slice(0, 4).map((el, i) => (
+                    <div className="recent-card-body" key={i}>
+                        <p style={{ width: "60px" }}>
+                            <span className="score-name">
+                                {el?.score?.batting?.score?.runs} ({el?.score?.batting?.score?.balls})
+                            </span>
+                        </p>
+                        <p>{el?.format}{i < 2 && ','}</p>
+                        <p style={{ width: "90px" }}>
+                            {el?.short_name}{i < 2 && ','}
+                        </p>
+                        <p style={{ width: "80px" }}>
+                            {formatDate(el?.start_date)}{i < 2 && ','}
+                        </p>
+                    </div>
+                ))}
+            </div> */}
 
             <div className="head-wrapper flex">
                 <div className='batting-career-name'> <p>Batting Career</p><div className="fill-player"></div> <span className='batting-style'>Right Handed</span> </div>

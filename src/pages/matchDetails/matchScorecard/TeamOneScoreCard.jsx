@@ -157,7 +157,7 @@ const TeamOneScoreCard = ({ batters, extraRuns, bowlers, matchInfoData, liveScor
                       matchData: matchInfoData,
                       playerKey: part?.player_a_key
                     }}>
-                    {part?.player_a_name}
+                    {part?.player_a_name} 
 
                   </Link>
                

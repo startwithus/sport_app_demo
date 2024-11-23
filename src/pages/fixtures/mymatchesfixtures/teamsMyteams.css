@@ -1,8 +1,15 @@
+.head-cont {
+  background-color: #222222;
+  display: flex;
+  justify-content: center;
+}
 .container {
   padding: 20px;
-  background-color: #333;
-  border-radius: 8px;
+  background-color: #222222;
+  /* border-radius: 8px; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  
 }
 
 /* Search Container */
@@ -27,14 +34,6 @@
 }
 
 /* Loader */
-.loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-  font-size: 18px;
-  font-weight: bold;
-}
 
 /* Team List */
 .team-list {
@@ -43,13 +42,20 @@
   gap: 15px;
   height: 50%;
   margin-top: 1rem;
-  /* background-color: #f44464; */
+  justify-content: center;
+  
 }
 
 .profile-list {
-  display: flex;
+  /* display: flex; */
   cursor: pointer;
   transition: transform 0.3s ease;
+
+}
+
+.profile-list div {
+  width: 250px;
+  height: 80px;
 }
 
 .profile-list:hover {
@@ -60,10 +66,10 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-background-color: rgb(62, 59, 59);
-border: 1px solid gray;
-padding: 8px;
-border-radius: 8px;
+  background-color: rgb(62, 59, 59);
+  border: 1px solid gray;
+  padding: 8px;
+  border-radius: 8px;
 }
 
 .team-image {
@@ -102,9 +108,10 @@ border-radius: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #222222;
+  background-color: #333;
   padding: 20px;
   margin-top: 5rem;
+  border-radius: 8px;
 }
 
 .headerLeft {
@@ -124,6 +131,8 @@ border-radius: 8px;
 }
 
 /* Match Cards */
+.card-details {
+}
 .matchCard {
   background-color: #323232;
   margin-bottom: 16px;
@@ -131,6 +140,8 @@ border-radius: 8px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  /* width: 80%; */
+  /* margin-left: 10rem; */
 }
 
 .matchCard:hover {
@@ -150,19 +161,21 @@ border-radius: 8px;
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  margin-top: 0.5rem;
 }
 
 .matchName {
   font-size: 18px;
   font-weight: bold;
   text-align: center;
+  color: white;
 }
 
 .matchShortName {
   font-size: 16px;
   text-align: center;
-  margin-bottom: 8px;
   font-weight: 700;
+  color: white;
 }
 
 .matchDescription {
@@ -171,6 +184,7 @@ border-radius: 8px;
   background-color: green;
   padding: 5px;
   border-radius: 20px;
+  color: white;
 }
 
 .matchList {
@@ -178,12 +192,6 @@ border-radius: 8px;
 }
 
 /* Error and Loader */
-.loader {
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  color: #f44464;
-}
 
 .errorText {
   text-align: center;

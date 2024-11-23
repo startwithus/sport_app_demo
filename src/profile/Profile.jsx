@@ -90,8 +90,12 @@ const Profile = ({ setProfileOpen }) => {
         <div className={`icons-profile ${location.pathname.includes('term') ? 'active-side' : null}`} onClick={() => { navigate("/termcondition"); setProfileOpen(false) }}>
           <h4>Teams And condition</h4>
         </div>
-        <p>{translations['RateUs']}</p>
-        <p>{translations['ReportAProblem']}</p>
+        <p
+          style={{ cursor: 'pointer' }}
+          onClick={() => window.open('https://www.google.com', '_blank', 'noopener,noreferrer')}
+        >
+          {translations['RateUs']}
+        </p>        <p>{translations['ReportAProblem']}</p>
       </div>
 
     </motion.div>

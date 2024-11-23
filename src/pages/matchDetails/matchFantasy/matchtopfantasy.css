@@ -1,35 +1,178 @@
-
 .arrow-left {
-    padding-top: 8px;
-    cursor: pointer;
+  padding-top: 8px;
+  cursor: pointer;
 }
 
-.new-img{
-    height: 200px;
+.new-img {
+  height: 200px;
 }
-.new-img img{
-    width: 100%;
-    height: 200px;
-  
+.new-img img {
+  width: 100%;
+  height: 200px;
 }
 .toggleTop {
-    margin-top: 16px;
-    display: flex;
-    gap: 16px;
-    color: white;
-    align-items: center;
+  margin-top: 16px;
+  display: flex;
+  gap: 16px;
+  color: white;
+  align-items: center;
 }
 .sec-fan-1 {
-    margin-top: 8px;
-    display: flex;
-    gap: 16px;
+  margin-top: 8px;
+  display: flex;
+  gap: 16px;
 }
 
 .sec-fan-fantasy {
-    width: 48%;
-    display: flex;
-    justify-content: space-between;
-    border-radius: 8px;
-    background: var(--background-bg-02, #323232);
-    cursor: pointer;
+  width: 48%;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 8px;
+  background: var(--background-bg-02, #323232);
+  cursor: pointer;
+}
+
+.fantasy-container {
+  padding: 16px;
+  /* background-color: #000; */
+  color: #fff;
+}
+
+.fantasy-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.see-all-button {
+  background: none;
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.fantasy-scroll-container {
+  /* display: flex; */
+  overflow-x: auto;
+  gap: 10px;
+  /* padding: 16px 0; */
+}
+
+.fantasy-card-top {
+  /* display: flex; */
+  /* width: 95% !important; */
+  background: var(--primary-bg2);
+  border-radius: 8px;
+  cursor: pointer;
+  height: 120px;
+  padding: 10px;
+  margin-top: 1rem;
+}
+
+.fantasy-card-header {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+.role-section {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+.runs-section {
+  display: flex;
+  justify-content: space-between;
+}
+.avatar-player {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.player-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+}
+
+.player-name {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.player-team {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.player-role {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 1rem;
+  color: gray;
+}
+
+.divider {
+  background: gray;
+  height: 1px;
+  border: none;
+  margin: 8px 0;
+}
+
+.fantasy-stats h4 {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.stats-row {
+  display: flex;
+  gap: 15px;
+}
+
+.stat-box {
+  text-align: center;
+}
+
+.stat {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
+
+.stat-vs {
+  color: #aaa;
+  font-size: 10px;
+}
+
+.coming-soon-text {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+.match-updates-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.view-all-button {
+  background: none;
+  color: #ff6600;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.news-card-container {
+  margin-top: 10px;
 }

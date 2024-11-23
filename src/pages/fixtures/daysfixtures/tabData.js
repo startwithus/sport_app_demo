@@ -21,8 +21,20 @@ export const fixtureTab = [
   },
   {
     id: 6,
+    title: "international"
+  },
+  {
+    id: 7,
     title: "test"
-  }
+  },
+  {
+    id: 8,
+    title: "league"
+  },
+  {
+    id: 9,
+    title: "Domestic"
+  },
 ]
 
 export const fixtureSeriesData = [
@@ -44,5 +56,21 @@ export const fixtureSeriesData = [
     id: 4,
     title: "test"
 
-  }
+  },
+  {
+    id: 5,
+    title: "international"
+
+  },
+  {
+    id: 6,
+    title: "League"
+
+  },
+  {
+    id: 7,
+    title: "domestic"
+
+  },
+
 ]

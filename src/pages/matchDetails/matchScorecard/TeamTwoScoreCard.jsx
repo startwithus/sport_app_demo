@@ -26,7 +26,7 @@ const TeamTwoScoreCard = ({ batters, extraRuns, bowlers, matchInfoData, liveScor
         </thead>
         <tbody>
           {
-            batters?.teamB?.batsman?.length > 0 ? batters?.teamB?.batsman.map((bat, i) => (
+            batters?.teamB?.batsman?.length > 0 ? batters?.teamB?.batsman?.map((bat, i) => (
               <tr key={i}>
                 <td style={{ cursor: "pointer" }}>
                   <Link style={{ color: "white" }} to={`/getMatchList/playerInformation/${matchInfoData?.match_id}`} state={{

@@ -29,7 +29,7 @@ const FixturesMyMatches = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container" style={{ marginLeft: "8rem" }}>
       <input
         type="text"
         className="search-input"

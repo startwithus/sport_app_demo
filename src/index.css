@@ -306,7 +306,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.32px;
+  gap: 5px;
   border: 1px solid var(--text-color);
 }
 

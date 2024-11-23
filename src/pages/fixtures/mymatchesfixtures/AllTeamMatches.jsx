@@ -36,27 +36,33 @@ const AllTeamMatch = () => {
     }, [match_key]); // Re-fetch data when match_key changes
 
     const renderMatchCard = (item) => (
+
         <div
             key={item.match_key}
             className="matchCard"
             onClick={() => navigate(`/match/${item.match_key}`)} // Use navigate instead of history.push
         >
-            <div className="matchCardHeader">
-                <img
-                    src={item.teamAImage || '/default-image.png'}
-                    alt="Team A"
-                    className="teamLogo"
-                />
-                <span className="matchName">{item.name}</span>
-                <img
-                    src={item.teamBImage || '/default-image.png'}
-                    alt="Team B"
-                    className="teamLogo"
-                />
-            </div>
             <span className="matchShortName">{item.tou_name}</span>
-            <p className="matchDescription">{item.msg}</p>
+            <div className='card-details'>
+
+                <div className="matchCardHeader">
+
+                    <img
+                        src={item.teamAImage || '/default-image.png'}
+                        alt="Team A"
+                        className="teamLogo"
+                    />
+                    <span className="matchName">{item.name}</span>
+                    <img
+                        src={item.teamBImage || '/default-image.png'}
+                        alt="Team B"
+                        className="teamLogo"
+                    />
+                </div>
+                <p className="matchDescription">{item.msg}</p>
+            </div>
         </div>
+
     );
 
     if (isLoading) {
@@ -77,20 +83,22 @@ const AllTeamMatch = () => {
 
     return (
         <Layout>
-            <div className="container">
-                <div className="header">
-                    <div className="headerLeft">
-                        <Link to="/" className="backButton">
-                            {/* <Icon name="arrow-left" size={22} color="#000" /> */}
-                            <FaChevronLeft />
+            <div className='head-cont'>
+                <div className="container">
+                    <div className="header">
+                        <div className="headerLeft">
+                            <Link to="/fixtures" className="backButton">
+                                {/* <Icon name="arrow-left" size={22} color="#000" /> */}
+                                <FaChevronLeft style={{ fontSize: "20px", marginTop: "5px" }} />
 
-                        </Link>
-                        <h1 className="headerTitle">Match Details</h1>
+                            </Link>
+                            <h1 className="headerTitle">Match Details</h1>
+                        </div>
                     </div>
-                </div>
 
-                <div className="matchList">
-                    {testTeam.map((item) => renderMatchCard(item))}
+                    <div className="matchList">
+                        {testTeam.map((item) => renderMatchCard(item))}
+                    </div>
                 </div>
             </div>
         </Layout>
