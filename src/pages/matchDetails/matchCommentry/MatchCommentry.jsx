@@ -104,13 +104,13 @@ const MatchCommentry = ({ matchInfoData, liveCommentary, match_key }) => {
                               <div className="out-container">
                                 <p>OUT</p>
                               </div>
-                              <p className='player-key'>{comm?.wicket?.player_key}  {overStats?.live?.recent_players?.striker?.stats?.runs} ({overStats?.live?.recent_players?.striker?.stats?.balls}) [4s-{overStats?.live?.recent_players?.striker?.stats?.fours}] [6s-{overStats?.live?.recent_players?.striker?.stats?.sixes}] </p>
+                              <p className='player-key'>{comm?.wicket?.player_name}  {overStats?.live?.recent_players?.striker?.stats?.runs} ({overStats?.live?.recent_players?.striker?.stats?.balls}) [4s-{overStats?.live?.recent_players?.striker?.stats?.fours}] [6s-{overStats?.live?.recent_players?.striker?.stats?.sixes}] </p>
                               <div className='commentry-player-name'>
                                 <p>Hightlights</p>
                               </div>
 
                               <div className='img-comm'>
-                                <img src={""} alt='playerImage' className='newImg'  />
+                                <img src={""} alt='playerImage' className='newImg' />
                               </div>
                             </div>
                           </div>
@@ -145,7 +145,7 @@ const MatchCommentry = ({ matchInfoData, liveCommentary, match_key }) => {
                               <div className="out-container">
                                 <p>OUT</p>
                               </div>
-                              <p className='player-key'>{comm?.wicket?.player_key} {comm?.batsman?.runs} </p>
+                              <p className='player-key'>{comm?.wicket?.player_name} {comm?.batsman?.runs} </p>
                               <div className='commentry-player-name'>
                                 <p></p>
                               </div>

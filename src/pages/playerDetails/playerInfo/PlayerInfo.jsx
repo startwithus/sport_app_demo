@@ -1,29 +1,49 @@
 import React from 'react'
 import './playerInfosection.css'
 const PlayerInfo = ({ playerDetailsData }) => {
+
+
+  const formatDate = (dobString) => {
+    if (!dobString) {
+      return "Date of birth not available";
+    }
+
+    const dobDate = new Date(dobString);
+
+    if (isNaN(dobDate)) {
+      return "Invalid date of birth";
+    }
+
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return dobDate.toLocaleDateString(undefined, options);
+  };
+
   const playerInfoDetails = [
     {
       title: "Name",
-      content: playerDetailsData?.player?.player_name
+      content: playerDetailsData?.player?.player_name,
     },
     {
       title: "DOB",
-      content: playerDetailsData?.player?.player_name
+      content: formatDate(playerDetailsData?.player?.date_of_birth), // Formatted DOB
     },
     {
-      title: "Birth Location",
-      content: playerDetailsData?.player?.player_name
+      title: "Gender",
+      content: playerDetailsData?.player?.gender, // Formatted DOB
     },
-    {
-      title: "Height",
-      content: playerDetailsData?.player?.player_name
-    },
+    // {
+    //   title: "Birth Location",
+    //   content: playerDetailsData?.player?.birth_location, // Corrected field
+    // },
+    // {
+    //   title: "Height",
+    //   content: playerDetailsData?.player?.height, // Corrected field
+    // },
     {
       title: "Nationality",
-      content: playerDetailsData?.player?.nationality?.name
+      content: playerDetailsData?.player?.nationality?.name,
     },
-
-  ]
+  ];
   return (
     <div className='scroll-padding'>
       <div className="head-wrapper flex">

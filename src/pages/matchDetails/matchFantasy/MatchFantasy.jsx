@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // React Router for navigation
-import './matchtopfantasy.css'; // External CSS file for styling
+import { useNavigate } from 'react-router-dom'; 
+import './matchtopfantasy.css'; 
 import avatarPlaceholder from '../../../assets/undraw_Male_avatar_g98d.png';
 import MatchUpdates from './MatchUpdates';
 import { getCaller } from '../../../services/api';
 import PlayerDetails from '../../playerDetails/PlayerDetails';
+import PlayerStatsSeries from './PlayerStatsSeries';
 
 const MatchFantasy = ({ matchInfoData }) => {
   const navigate = useNavigate();
@@ -41,6 +42,9 @@ const MatchFantasy = ({ matchInfoData }) => {
 
   return (
     <>
+      <div className=''>
+        <PlayerStatsSeries getTopFantasy={getTopFantasy} matchInfoData={matchInfoData} />
+      </div>
       <div className="fantasy-container">
         <div className="fantasy-header">
           <h2>Top Fantasy Picks</h2>
@@ -87,10 +91,6 @@ const MatchFantasy = ({ matchInfoData }) => {
                     </div>
 
                   </div>
-
-
-
-
                   <div className="player-role-container">
                     {/* <p className='player-role-rank'>{player?.intelligent_rank}</p> */}
 
@@ -124,35 +124,36 @@ const MatchFantasy = ({ matchInfoData }) => {
                   </div> */}
 
                   <div className="stats-row">
-                    {(player.performance || []).map((stat, statIndex) => {
-                      const role = player?.seasonal_role?.toLowerCase();
-                      const isBatsmanOrAllRounder = role === 'batsman' || role === 'all_rounder' || role === "keeper";
-                      const isBowler = role === 'bowler';
+                    {(player.performance && player.performance.length > 0) &&
+                      player.performance.map((stat, statIndex) => {
+                        const role = player?.seasonal_role?.toLowerCase();
+                        const isBatsmanOrAllRounder = role === 'batsman' || role === 'all_rounder' || role === "keeper";
+                        const isBowler = role === 'bowler';
 
-                      return (
-                        <div className="stat-box" key={statIndex}>
-                          {isBatsmanOrAllRounder ? (
-                            <>
-                              <p className="stat">
-                                {stat?.score?.batting?.score?.runs || '-'} (
-                                {stat?.score?.batting?.score?.balls || '-'})
-                              </p>
-                              <p className="stat-vs">{stat?.short_name || '-'}</p>
-                            </>
-                          ) : isBowler ? (
-                            <>
-                              <p className="stat">
-                                {stat?.score?.bowling?.score?.wickets || '-'} (
-                                {stat?.score?.bowling?.score?.runs || '-'})
-                              </p>
-                              <p className="stat-vs">{stat?.short_name || '-'}</p>
-                            </>
-                          ) : (
-                            <p className="stat">Role data not available.</p>
-                          )}
-                        </div>
-                      );
-                    })}
+                        return (
+                          <div className="stat-box" key={statIndex}>
+                            {isBatsmanOrAllRounder ? (
+                              <>
+                                <p className="stat">
+                                  {stat?.score?.batting?.score?.runs || '-'} (
+                                  {stat?.score?.batting?.score?.balls || '-'})
+                                </p>
+                                {/* <p className="stat-vs">{stat?.short_name || '-'}</p> */}
+                              </>
+                            ) : isBowler ? (
+                              <>
+                                <p className="stat">
+                                  {stat?.score?.bowling?.score?.wickets || '-'} (
+                                  {stat?.score?.bowling?.score?.runs || '-'})
+                                </p>
+                                <p className="stat-vs">{stat?.short_name || '-'}</p>
+                              </>
+                            ) : (
+                              <p className="stat">Role data not available.</p>
+                            )}
+                          </div>
+                        );
+                      })}
                   </div>
 
                 </div>
@@ -163,6 +164,7 @@ const MatchFantasy = ({ matchInfoData }) => {
           )}
         </div>
       </div>
+
       <div className="match-updates">
         <div className="news-card-container">
           <MatchUpdates />
@@ -170,6 +172,7 @@ const MatchFantasy = ({ matchInfoData }) => {
       </div>
 
       {/* <PlayerDetails getTopFantasy={getTopFantasy} matchInfoData={matchInfoData} /> */}
+
     </>
   );
 };

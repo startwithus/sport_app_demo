@@ -38,7 +38,7 @@ const PlayerDetails = () => {
     ];
     return (
         <Layout>
-            <div className='player-details-container'>
+            <div className='player-details-container' style={{ paddingTop: "5rem" }}>
                 <div className="player-circle">
                     <Link className="player-details-arrow" to={`/getMatchList/${match_id}`}>
                         <img src={arrowRight} alt="" />

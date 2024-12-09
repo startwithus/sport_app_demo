@@ -18,14 +18,14 @@ const MatchLive = ({ matchInfoData, liveScore, styles }) => {
               <div className="head-wrapper-player">
                 <p style={{ textAlign: "left", fontSize: "18px" }}>Player Of The Match</p>
                 {matchInfoData?.play?.result?.pom?.map((player, index) => (
-                  <div key={index} style={{marginTop:"1rem"}}>
+                  <div key={index} style={{ marginTop: "1rem" }}>
                     <div>
                       <h3>
-                      {player.player_name.toUpperCase()}
-                       {/* {player.scero.runs} ({player.scero.balls}) */}
-                      </h3>                    
+                        {player.player_name.toUpperCase()}
+                        {/* {player.scero.runs} ({player.scero.balls}) */}
+                      </h3>
                       <p>
-                        {player.nationality.name}
+                        {player?.team?.name}
                       </p>
                     </div>
                     <img

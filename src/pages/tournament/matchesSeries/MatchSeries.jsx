@@ -33,15 +33,15 @@ const MatchSeries = ({ matchDataByTou }) => {
 
                                 <div className='featured-match-container'>
                                     {
-                                        el.status === 'completed' ?
+                                        el?.status === 'completed' ?
                                             <div className="">
                                                 {
                                                     isMobile ? <div>
                                                         <>{
                                                             el?.play?.result?.msg ? <>
                                                                 {
-                                                                    el.play?.result?.winner === 'a' ?
-                                                                        <p className='result-msg'>{el.team?.a?.code} win_by {el?.play?.result?.win_by} {el?.play?.result?.result_type} </p> :
+                                                                    el?.play?.result?.winner === 'a' ?
+                                                                        <p className='result-msg'>{el?.team?.a?.code} win_by {el?.play?.result?.win_by} {el?.play?.result?.result_type} </p> :
                                                                         <p className='result-msg'>{el?.team?.b?.code} win_by {el?.play?.result?.win_by} {el?.play?.result?.result_type
                                                                         } </p>
                                                                 }
